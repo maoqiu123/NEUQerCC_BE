@@ -18,7 +18,7 @@ class UserController extends Controller
     public function register(Request $request)
     {
         $register = new RegisterController();
-        return $register->register( $request->phone,$request->password,$request->username);
+        return $register->register( $request->phone,$request->password);
     }
 
     public function login(Request $request){

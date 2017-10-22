@@ -13,12 +13,11 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    public function register($phone, $password,$username)
+    public function register($phone, $password)
     {
         $user = new User();
         if ($phone != '') {
             $data = [
-                'username' => $username,
                 'password' => bcrypt($password),
                 'phone' => $phone,
             ];
@@ -58,8 +57,10 @@ class RegisterController extends Controller
 //解析返回结果（json格式字符串）
         $array = json_decode($json_data,true);
 //        echo '<pre>';print_r($array);
-        $array['captcha'] = $captcha;
-        return response()->json($array);
+        $msg['code'] = $array['code'];
+        $msg['msg'] = $array['msg'];
+        $msg['data']['captcha'] = $captcha;
+        return response()->json($msg);
 
     }
 

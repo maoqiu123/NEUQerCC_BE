@@ -23,7 +23,7 @@ class LoginController extends Controller
                 return response()->json(['code'=>2,'msg'=>'用户名或密码错误']);
             }
         }else{
-            return response()->json(['code'=>3,'msg'=>'微信号不能为空']);
+            return response()->json(['code'=>3,'msg'=>'手机号不能为空']);
         }
     }
 

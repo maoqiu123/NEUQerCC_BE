@@ -21,3 +21,6 @@ Route::post('/forgot','UserController@forgot');
 Route::post('/carousel/add','CarouselController@add');
 Route::delete('/carousel/del','CarouselController@del');
 Route::get('/carousel/show','CarouselController@show');
+Route::post('/type/add','CompetitionTypeController@add');
+Route::delete('/type/del','CompetitionTypeController@del');
+Route::get('/type/show','CompetitionTypeController@show');

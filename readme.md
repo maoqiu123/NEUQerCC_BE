@@ -94,7 +94,7 @@ password(string) | 传入密码  | 12345678912
 phone(string) | 传入手机号  | 12345678912
 password(string) | 传入密码  | 12345678912
 
-注册成功返回 
+成功返回 
  ```json
 {
     "code": 0,
@@ -102,7 +102,7 @@ password(string) | 传入密码  | 12345678912
 }
  ```
 
-注册失败返回
+失败返回
  ```json
 {
     "code": 1,
@@ -137,7 +137,7 @@ password(string) | 传入密码  | 12345678912
 phone(string) | 传入手机号  | 12345678912
 password(string) | 传入密码  | 12345678912
 
-注册成功返回 
+成功返回 
  ```json
 {
     "code": 0,
@@ -145,7 +145,7 @@ password(string) | 传入密码  | 12345678912
 }
  ```
 
-注册失败返回
+失败返回
  ```json
 {
     "code": 1,
@@ -176,7 +176,7 @@ password(string) | 传入密码  | 12345678912
 carousel(file) | 传入图片文件  | C:\Users\hasee\Pictures\Camera Roll\1.jpg
 order(string) | 传入图片序号  | 1
 
-注册成功返回 
+成功返回 
  ```json
 {
     "code": 0,
@@ -184,7 +184,7 @@ order(string) | 传入图片序号  | 1
 }
  ```
 
-注册失败返回
+失败返回
  ```json
 {
     "code": 1,
@@ -225,7 +225,7 @@ order(string) | 传入图片序号  | 1
 ----|------|----
 order(string) | 传入图片序号  | 1
 
-注册成功返回 
+成功返回 
  ```json
 {
     "code": 0,
@@ -233,7 +233,7 @@ order(string) | 传入图片序号  | 1
 }
  ```
 
-注册失败返回
+失败返回
  ```json
 {
     "code": 1,
@@ -267,7 +267,7 @@ order(string) | 传入图片序号  | 1
  ----|------|----
 无 | 无  | 无
  
- 注册成功返回
+ 成功返回
  (2条数据时)
   ```json
 {
@@ -307,10 +307,157 @@ order(string) | 传入图片序号  | 1
 }
 ```
  
- 注册失败返回
+ 失败返回
   ```json
  {
      "code": 1,
      "msg": "查询轮播图失败"
  }
   ```
+  
+ ### 比赛类别
+ 
+ #### 添加比赛类别
+ 
+> http://www.thmaoqiu.cn/saiyou/public/index.php/type/add
+
+数据传输方式：POST
+
+数据传输格式为：JSON
+
+
+参数(类型) | 说明 | 示例
+----|------|----
+name(string) | 传入比赛类别  | 数学类
+order(string) | 传入比赛序号  | 1
+
+成功返回 
+ ```json
+{
+    "code": 0,
+    "msg": "添加比赛类别成功"
+}
+ ```
+
+失败返回
+ ```json
+{
+    "code": 1,
+    "msg": "添加比赛类别失败"
+}
+ ```
+```json
+{
+    "code": 2,
+    "msg": "请输入比赛类型"
+}
+ ```
+```json
+{
+    "code": 3,
+    "msg": "请输入比赛序号"
+}
+ ```
+```json
+{
+    "code": 4,
+    "msg": "该比赛序号已存在"
+}
+ ```
+ 
+  #### 删除比赛类别
+  
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/type/del
+ 
+ 数据传输方式：DELETE
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ name(string) | 传入比赛类别  | 数学类
+ order(string) | 传入图片序号  | 1
+ 
+ 成功返回 
+  ```json
+ {
+     "code": 0,
+     "msg": "删除比赛类别成功"
+ }
+  ```
+ 
+ 失败返回
+  ```json
+ {
+     "code": 1,
+     "msg": "删除比赛类别失败"
+ }
+  ```
+ ```json
+ {
+     "code": 2,
+     "msg": "比赛类别未找到"
+ }
+  ```
+ ```json
+ {
+     "code": 3,
+     "msg": "请输入比赛序号"
+ }
+  ```
+  
+   #### 查询比赛类别
+   
+  > http://www.thmaoqiu.cn/saiyou/public/index.php/type/show
+  
+  数据传输方式：GET
+  
+  数据传输格式为：JSON
+  
+  
+  参数(类型) | 说明 | 示例
+  ----|------|----
+  order(string) | 传入图片序号  | 1
+  
+  成功返回 
+   ```json
+{
+    "code": 0,
+    "msg": "查询比赛类别成功",
+    "data": [
+        {
+            "name": "数学类",
+            "order": 1
+        },
+        {
+            "name": "编程类",
+            "order": 2
+        },
+        {
+            "name": "ssss类",
+            "order": 3
+        },
+        {
+            "name": "666类",
+            "order": 4
+        },
+        {
+            "name": "牛皮类",
+            "order": 5
+        },
+        {
+            "name": "bilibili类",
+            "order": 6
+        }
+    ]
+}
+   ```
+  
+  失败返回
+   ```json
+  {
+      "code": 1,
+      "msg": "查询比赛类别失败"
+  }
+   ```

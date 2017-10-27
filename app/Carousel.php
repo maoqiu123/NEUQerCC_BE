@@ -2,12 +2,10 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
-class Carousel extends Authenticatable
+use Illuminate\Database\Eloquent\Model;
+
+class Carousel extends Model
 {
     protected $fillable = [
         'order', 'url',

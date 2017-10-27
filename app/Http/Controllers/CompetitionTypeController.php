@@ -12,7 +12,7 @@ namespace App\Http\Controllers;
 use App\CompetitionType;
 use Illuminate\Http\Request;
 
-class CompetitionTypeController
+class CompetitionTypeController extends Controller
 {
     public function add(Request $request){
         $type = new CompetitionType();
@@ -22,12 +22,15 @@ class CompetitionTypeController
             return response()->json(['code'=>2,'msg'=>'请输入比赛类型']);
         }
         if ($order = $request->order){
+            if ($type->where('order',$order)->first()){
+                return response()->json(['code'=>4,'msg'=>'该比赛序号已存在']);
+            }
             return $type->add($name,$order);
         }else{
             return response()->json(['code'=>3,'msg'=>'请输入比赛序号']);
         }
-
     }
+
     public function del(Request $request){
         $type = new CompetitionType();
         if ($order = $request->order){
@@ -36,4 +39,10 @@ class CompetitionTypeController
             return response()->json(['code'=>3,'msg'=>'请输入比赛序号']);
         }
     }
+
+    public function show(){
+        $type = new CompetitionType();
+        return $type->show();
+    }
+
 }

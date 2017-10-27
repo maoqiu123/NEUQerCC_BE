@@ -9,10 +9,12 @@
 namespace App;
 
 
-class CompetitionType
+use Illuminate\Database\Eloquent\Model;
+
+class CompetitionType extends Model
 {
     protected $fillable = [
-        'username', 'phone', 'password',
+        'name', 'order'
     ];
     protected $table = 'competition_type';
     public function add($name,$order){
@@ -28,13 +30,25 @@ class CompetitionType
     public function del($order){
         $type = new CompetitionType();
         if ($type->where('order',$order)->first()){
-            if ($type->delete()){
+            if ($type->where('order',$order)->delete()){
                 return response()->json(['code'=>0,'msg'=>'删除比赛类别成功']);
             }else{
                 return response()->json(['code'=>1,'msg'=>'删除比赛类别失败']);
             }
         }else{
             return response()->json(['code'=>2,'msg'=>'比赛类别未找到']);
+        }
+    }
+    public function show(){
+        $type = new CompetitionType();
+        if ($types = $type->orderBy('order')->get()){
+            for ($i = 0;$i<sizeof($types);$i++){
+                $result[$i]['name'] = $types[$i]['name'];
+                $result[$i]['order'] = $types[$i]['order'];
+            }
+            return response()->json(['code'=>0,'msg'=>'查询比赛类别成功','data'=>$result]);
+        }else{
+            return response()->json(['code'=>1,'msg'=>'查询比赛类别失败']);
         }
     }
 }

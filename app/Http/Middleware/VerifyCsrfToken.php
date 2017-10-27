@@ -18,5 +18,7 @@ class VerifyCsrfToken extends BaseVerifier
         '/forgot',
         '/carousel/add',
         '/carousel/del',
+        '/type/add',
+        '/type/del',
     ];
 }

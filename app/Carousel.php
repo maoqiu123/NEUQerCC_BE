@@ -42,7 +42,11 @@ class Carousel extends Authenticatable
     }
     public function show(){
         $carousels = new Carousel();
-        $result = $carousels->orderBy('order')->take(3)->get();
+        if ( $result = $carousels->orderBy('order')->take(3)->get()){
+
+        }else{
+            return response()->json(['code'=>1,'msg'=>'查询轮播图失败']);
+        }
         if (sizeof($result)<=3){
             $num = sizeof($result)-1;
         }else{

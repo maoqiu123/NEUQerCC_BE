@@ -461,3 +461,172 @@ order(string) | 传入比赛序号  | 1
       "msg": "查询比赛类别失败"
   }
    ```
+
+### 比赛详情
+
+#### 添加比赛
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/desc/add
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ name(string) | 传入比赛名称  | emmm比赛
+ desc(string) | 传入比赛具体信息  | 123456789098765432345678876543234567898765
+ short_desc(string) | 传入简要比赛具体信息)  | 123456789
+ registration_time(date) | 传入报名时间  | 2017/10/28(2017-10-28)
+ competition_time(date) | 传入比赛时间  | 2017/10/28(2017-10-28)
+ pic(file) | 传入比赛缩略图  | C:\Users\hasee\Pictures\Camera Roll\1.jpg
+ type(string) | 传入比赛类别  | 数学类
+ 
+ 注:若参数未传，则默认为NULL
+ 
+ 成功返回 
+  ```json
+ {
+     "code": 0,
+     "msg": "创建比赛成功"
+ }
+  ```
+ 
+ 失败返回
+  ```json
+ {
+     "code": 1,
+     "msg": "创建比赛失败"
+ }
+  ```
+
+
+#### 修改比赛
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/desc/edit
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ name(string) | 传入比赛名称  | emmm比赛
+ desc(string) | 传入比赛具体信息  | 123456789098765432345678876543234567898765
+ short_desc(string) | 传入简要比赛具体信息)  | 123456789
+ registration_time(date) | 传入报名时间  | 2017/10/28(2017-10-28)
+ competition_time(date) | 传入比赛时间  | 2017/10/28(2017-10-28)
+ pic(file) | 传入比赛缩略图  | C:\Users\hasee\Pictures\Camera Roll\1.jpg
+ type(string) | 传入比赛类别  | 数学类
+ 
+ 注:若参数未传则值不变
+ 
+ 成功返回 
+  ```json
+ {
+     "code": 0,
+     "msg": "修改比赛成功"
+ }
+  ```
+ 
+ 失败返回
+  ```json
+ {
+     "code": 1,
+     "msg": "修改比赛失败"
+ }
+  ```
+  ```json
+ {
+     "code": 2,
+     "msg": "比赛id不能为空"
+ }
+  ```
+  
+#### 删除比赛
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/desc/edit
+ 
+ 数据传输方式：DELETE
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ id(int) | 传入比赛id  | 1
+ 
+ 成功返回 
+  ```json
+ {
+     "code": 0,
+     "msg": "删除比赛成功"
+ }
+  ```
+ 
+ 失败返回
+  ```json
+ {
+     "code": 1,
+     "msg": "删除比赛失败"
+ }
+  ```
+  ```json
+ {
+     "code": 2,
+     "msg": "比赛id不能为空"
+ }
+  ```
+  ```json
+ {
+     "code": 3,
+     "msg": "该比赛id不存在"
+ }
+  ```
+
+  
+#### 查询比赛
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/desc/edit
+ 
+ 数据传输方式：DELETE
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ id(int) | 传入比赛id  | 5
+ 
+ 成功返回 
+  ```json
+{
+    "code": 0,
+    "msg": "查询成功",
+    "data": {
+        "id": 5,
+        "name": "bilibili",
+        "desc": "bbbbbbbbbbbbbb",
+        "short_desc": "",
+        "registration_time": "2017-10-01",
+        "competition_time": "2017-10-30",
+        "pic": "http://www.thmaoqiu.cn/saiyou/storage/app/competitions/59f43cdac4066.jpg"
+    }
+}
+  ```
+ 
+ 失败返回
+```json
+ {
+     "code": 2,
+     "msg": "比赛id不能为空"
+ }
+```
+```json
+ {
+     "code": 3,
+     "msg": "该比赛id不存在"
+ }
+```

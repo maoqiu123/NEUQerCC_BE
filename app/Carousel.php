@@ -15,7 +15,7 @@ class Carousel extends Model
         $path = $carousel->storeAS(
             'carousels',uniqid().'.jpg'
         );
-        $url = 'http://www.thmaoqiu.cn/poetry/storage/app/'.$path;
+        $url = 'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path;
         $carousels = new Carousel();
         $carousels->url = $url;
         $carousels->order = $order;

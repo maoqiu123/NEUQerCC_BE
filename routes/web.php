@@ -24,3 +24,7 @@ Route::get('/carousel/show','CarouselController@show');
 Route::post('/type/add','CompetitionTypeController@add');
 Route::delete('/type/del','CompetitionTypeController@del');
 Route::get('/type/show','CompetitionTypeController@show');
+Route::post('/desc/add','CompetitionDescController@add');
+Route::post('/desc/edit','CompetitionDescController@edit');
+Route::delete('/desc/del','CompetitionDescController@del');
+Route::get('/desc/show','CompetitionDescController@show');

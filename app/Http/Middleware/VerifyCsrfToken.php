@@ -23,5 +23,8 @@ class VerifyCsrfToken extends BaseVerifier
         '/desc/add',
         '/desc/edit',
         '/desc/del',
+        '/team/add',
+        '/team/edit',
+        '/team/del',
     ];
 }

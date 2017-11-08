@@ -17,6 +17,9 @@ class CompetitionDesc extends Model
         'name', 'desc', 'short_desc', 'registration_time','competition_time','pic','type',
     ];
     protected $table = 'competition_desc';
+    protected $hidden = [
+        'created_at','updated_at',
+    ];
     public function add($name,$desc,$short_desc,$registration_time,$competition_time,$pic,$type){
         $competitiondesc = new CompetitionDesc();
         if ($time = strtotime($registration_time)){
@@ -130,5 +133,17 @@ class CompetitionDesc extends Model
             return response()->json(['code'=>3,'msg'=>'该比赛id不存在']);
         }
     }
+
+    public function descs_show($page,$size){
+        if ($page == '') $page = 1;
+        if ($size == '') $size = 3;
+        if ($competitiondesc = CompetitionDesc::orderBy('created_at')->skip($size * $page - $size)->take($size)->get()){
+            return response()->json(['code'=>0,'msg'=>'查询队伍成功','data'=>['totalCount' => sizeof($competitiondesc),'item' => $competitiondesc]]);
+        }else{
+            return response()->json(['code'=>1,'msg'=>'查询队伍失败']);
+        }
+    }
+
+
 
 }

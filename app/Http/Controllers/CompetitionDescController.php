@@ -43,4 +43,8 @@ class CompetitionDescController extends Controller
         }
         return $desc->show(intval($request->id));
     }
+    public function descs_show(Request $request){
+        $desc = new CompetitionDesc();
+        return $desc->descs_show(intval($request->page),intval($request->size));
+    }
 }

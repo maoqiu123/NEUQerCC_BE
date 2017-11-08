@@ -547,7 +547,7 @@ order(string) | 传入比赛序号  | 1
   
 #### 删除比赛
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/desc/edit
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/desc/del
  
  数据传输方式：DELETE
  
@@ -587,11 +587,11 @@ order(string) | 传入比赛序号  | 1
   ```
 
   
-#### 查询比赛
+#### 查询单个比赛
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/desc/edit
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/desc/show
  
- 数据传输方式：DELETE
+ 数据传输方式：GET
  
  数据传输格式为：JSON
  
@@ -628,5 +628,253 @@ order(string) | 传入比赛序号  | 1
  {
      "code": 3,
      "msg": "该比赛id不存在"
+ }
+```
+
+#### 查询多个比赛
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/descs/show
+ 
+ 数据传输方式：GET
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ page(int) | 传入页数 | 1
+ size(int) | 传入每页显示的数量 | 3
+ 
+ 成功返回 
+  ```json
+{
+    "code": 0,
+    "msg": "查询队伍成功",
+    "data": {
+        "totalCount": 1,
+        "item": [
+            {
+                "id": 9,
+                "name": "bilibili",
+                "desc": "bbbbbbbbbbbbbb",
+                "short_desc": "b123",
+                "registration_time": "2017-10-01",
+                "competition_time": "2017-10-30",
+                "pic": "http://www.thmaoqiu.cn/saiyou/storage/app/competitions/59f4804f62901.jpg",
+                "type": "bilibili类"
+            }
+        ]
+    }
+}
+  ```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "查询队伍失败"
+ }
+```
+
+### 队伍详情
+
+#### 添加队伍
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/team/add
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ team_name(string) | 传入队伍名称  | 毛球小队
+ competition_type(string) | 传入比赛名称  | bilibili比赛
+ project_name(string) | 传入项目名称  | 赛友
+ declaration(string) | 传入队伍宣言  | 我们是最棒的！
+ good_at(string) | 传入目标队员的擅长  | 前端开发,后端开发
+ 
+ 
+ 成功返回 
+  ```json
+ {
+     "code": 0,
+     "msg": "保存队伍信息成功"
+ }
+  ```
+ 
+ 失败返回
+  ```json
+ {
+     "code": 1,
+     "msg": "保存队伍信息失败"
+ }
+  ```
+  
+#### 修改队伍
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/team/edit
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ team_id(int) | 传入队伍id  | 4006134
+ team_name(string) | 传入队伍名称  | 毛球小队
+ competition_type(string) | 传入比赛名称  | bilibili比赛
+ project_name(string) | 传入项目名称  | 赛友
+ declaration(string) | 传入队伍宣言  | 我们是最棒的！
+ good_at(string) | 传入目标队员的擅长  | 前端开发,后端开发
+ 
+ 
+ 成功返回 
+```json
+ {
+     "code": 0,
+     "msg": "修改队伍信息成功"
+ }
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "修改队伍信息失败"
+ }
+```
+```json
+ {
+     "code": 2,
+     "msg": "队伍id不能为空"
+ }
+```
+```json
+ {
+     "code": 3,
+     "msg": "找不到该队伍id"
+ }
+```
+
+#### 删除队伍
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/team/del
+ 
+ 数据传输方式：DELETE
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ team_id(int) | 传入队伍id  | 4006134
+ 
+ 
+ 成功返回 
+```json
+ {
+     "code": 0,
+     "msg": "删除队伍成功"
+ }
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "删除队伍失败"
+ }
+```
+```json
+ {
+     "code": 2,
+     "msg": "队伍id不能为空"
+ }
+```
+```json
+ {
+     "code": 3,
+     "msg": "找不到该队伍id"
+ }
+```
+
+#### 查询单支队伍
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/team/show
+ 
+ 数据传输方式：GET
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ team_id(int) | 传入队伍id  | 4006134
+ 
+ 
+ 成功返回 
+```json
+ {
+     "code": 0,
+     "msg": "查询队伍成功"
+ }
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 2,
+     "msg": "队伍id不能为空"
+ }
+```
+```json
+ {
+     "code": 3,
+     "msg": "找不到该队伍id"
+ }
+```
+
+#### 查询多支队伍
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/teams/show
+ 
+ 数据传输方式：GET
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ page(int) | 传入第几页  | 2
+ size(int) | 传入每页显示数量  | 8
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "查询队伍成功",
+    "data": {
+        "0": {
+            "id": 8817871,
+            "team_name": "毛球小队9",
+            "competition_type": "bilibili比赛",
+            "project_name": "赛友9",
+            "declaration": "我们是最棒的！",
+            "good_at": "前端开发,后端开发"
+        },
+        "totalCount": 1
+    }
+}
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "查询队伍失败"
  }
 ```

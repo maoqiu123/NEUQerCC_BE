@@ -158,6 +158,94 @@ password(string) | 传入密码  | 12345678912
     "msg": "密码重置失败"
 }
  ```
+ #### 修改个人信息
+ 
+> http://www.thmaoqiu.cn/saiyou/public/index.php/user/edit
+
+数据传输方式：POST
+
+数据传输格式为：JSON
+
+
+参数(类型) | 说明 | 示例
+----|------|----
+phone(string) | 传入手机号  | 12345678912
+name(string) | 传入姓名  | thth
+gender(int) | 传入性别  | 男：0，女：1
+major(string) | 传入专业  | 通信工程
+grade(int) | 传入年级  | 2016
+studentid(int) | 传入学号  | 20166666
+good_at(string) | 传入擅长领域  | 后端开发
+pic(file) | 传入用户头像  | C:\Users\hasee\Pictures\Camera Roll\1.jpg
+glory_name(string) | 传入荣誉墙赛事名称  | 蓝桥杯
+glory_time(string) | 传入荣誉墙获奖时间  | 2017
+glory_pic(file) | 传入荣誉墙证书图片  | C:\Users\hasee\Pictures\Camera Roll\2.jpg
+
+成功返回 
+ ```json
+{
+    "code": 0,
+    "msg": "修改用户信息成功"
+}
+ ```
+
+失败返回
+ ```json
+{
+    "code": 1,
+    "msg": "修改用户信息失败"
+}
+ ```
+ ```json
+{
+    "code": 2,
+    "msg": "用户不存在"
+}
+ ```
+
+
+ #### 修改个人信息
+ 
+> http://www.thmaoqiu.cn/saiyou/public/index.php/user/show
+
+数据传输方式：GET
+
+数据传输格式为：JSON
+
+
+参数(类型) | 说明 | 示例
+----|------|----
+phone(string) | 传入手机号  | 12345678912
+
+成功返回 
+ ```json
+{
+    "code": 0,
+    "msg": "查询用户资料成功",
+    "data": {
+        "username": "maoqiu",
+        "phone": "15076067012",
+        "pic": "http://www.thmaoqiu.cn/saiyou/storage/app/pics/5a0c57e2759f2.jpg",
+        "name": "thth",
+        "major": "通信工程",
+        "grade": 2016,
+        "studentid": 20166666,
+        "gender": 0,
+        "good_at": "后端开发",
+        "glory_name": "蓝桥杯,蓝桥杯",
+        "glory_time": "2017,2017",
+        "glory_pic": ",http://www.thmaoqiu.cn/saiyou/storage/app/glory_pics/5a0c57e273537.jpg"
+    }
+}
+ ```
+
+失败返回
+ ```json
+{
+    "code": 1,
+    "msg": "查询用户资料失败"
+}
+ ```
  
  ### 比赛轮播图
  

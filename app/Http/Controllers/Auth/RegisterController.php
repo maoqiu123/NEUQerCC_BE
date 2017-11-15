@@ -13,6 +13,7 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
+
     public function register($phone, $password)
     {
         $user = new User();
@@ -61,6 +62,62 @@ class RegisterController extends Controller
         $msg['msg'] = $array['msg'];
         $msg['data']['captcha'] = $captcha;
         return response()->json($msg);
+
+    }
+
+    public function edit($phone,$name,$gender,$major,$grade,$studentid,$good_at,$pic,$glory_name,$glory_time,$glory_pic){
+        if ($user = User::where('phone',$phone)->first()){
+            $user->name = $name;
+            $user->gender = $gender;
+            $user->major = $major;
+            $user->grade = $grade;
+            $user->studentid = $studentid;
+            $user->good_at = $good_at;
+
+            if ($glory_pic != ''){
+                $path1 = $glory_pic->storeAs('glory_pics',uniqid().'.jpg');
+                if ($user->glory_name != '' || $user->glory_time != '' || $user->glory_pic != ''){
+                    $user->glory_name = $user->glory_name.','.$glory_name;
+                    $user->glory_time = $user->glory_time.','.$glory_time;
+                    $user->glory_pic = $user->glory_pic.','.'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path1;
+                }else{
+                    $user->glory_name = $glory_name;
+                    $user->glory_time = $glory_time;
+                    $user->glory_pic = 'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path1;
+                }
+            }else{
+                if ($user->glory_name != '' && $user->glory_time != '' && $user->glory_pic != ''){
+                    $user->glory_name = $user->glory_name.','.$glory_name;
+                    $user->glory_time = $user->glory_time.','.$glory_time;
+                }else{
+                    $user->glory_name = $glory_name;
+                    $user->glory_time = $glory_time;
+                }
+            }
+
+            if ($pic != ''){
+                $path2 = $pic->storeAs('pics', uniqid().'.jpg');
+                $user->pic = 'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path2;
+            }
+
+            if ($user->save()){
+                return response()->json(['code'=>0,'msg'=>'修改用户信息成功']);
+            }else{
+                return response()->json(['code'=>1,'msg'=>'修改用户信息失败']);
+            }
+
+        }else{
+            return response()->json(['code'=>2,'msg'=>'用户不存在']);
+        }
+    }
+
+    public function show($phone){
+        if ($user = User::where('phone',$phone)->first()){
+            return response()->json(['code'=>0,'msg'=>'查询用户资料成功','data'=>$user]);
+        }else{
+            return response()->json(['code'=>1,'msg'=>'查询用户资料失败']);
+        }
+
 
     }
 

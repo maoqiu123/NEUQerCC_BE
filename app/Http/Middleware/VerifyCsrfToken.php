@@ -16,6 +16,7 @@ class VerifyCsrfToken extends BaseVerifier
         '/login',
         '/sms',
         '/forgot',
+        '/user/edit',
         '/carousel/add',
         '/carousel/del',
         '/type/add',

@@ -18,6 +18,8 @@ Route::post('/register','UserController@register');
 Route::post('/login','UserController@login');
 Route::post('/sms','UserController@sms');
 Route::post('/forgot','UserController@forgot');
+Route::post('/user/edit','UserController@edit');
+Route::get('/user/show','UserController@show');
 Route::post('/carousel/add','CarouselController@add');
 Route::delete('/carousel/del','CarouselController@del');
 Route::get('/carousel/show','CarouselController@show');

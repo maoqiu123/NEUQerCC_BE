@@ -19,7 +19,7 @@ class User extends Authenticatable
     ];
     protected $table = 'users';
     protected $hidden = [
-        //
+        'created_at','updated_at','password','team_id','remember_token','id',
     ];
 
     public function uservalidate($username){

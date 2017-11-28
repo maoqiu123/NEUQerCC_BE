@@ -36,3 +36,29 @@ Route::post('/team/edit','TeamController@edit');
 Route::delete('/team/del','TeamController@del');
 Route::get('/team/show','TeamController@show');
 Route::get('/teams/show','TeamController@teams_show');
+
+
+Route::get('/index',function (){
+    return view('admin/index');
+});
+Route::get('/carousel/add',function (){
+    return view('admin/carousel/add');
+});
+Route::get('/carousel/del',function (){
+    return view('admin/carousel/del');
+});
+Route::get('/type/add',function (){
+    return view('admin/type/add');
+});
+Route::get('/type/del',function (){
+    return view('admin/type/del');
+});
+Route::get('/desc/add',function (){
+    return view('admin/desc/add');
+});
+Route::get('/desc/edit',function (){
+    return view('admin/desc/edit');
+});
+Route::get('/desc/del',function (){
+    return view('admin/desc/del');
+});

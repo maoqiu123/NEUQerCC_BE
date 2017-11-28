@@ -1,5 +1,9 @@
 ## 赛友
 
+### 后台管理页面
+
+> http://www.thmaoqiu.cn/saiyou/public/index.php/index
+
 ### 登陆注册
 
 #### sms
@@ -261,8 +265,8 @@ phone(string) | 传入手机号  | 12345678912
 
 参数(类型) | 说明 | 示例
 ----|------|----
-carousel(file) | 传入图片文件  | C:\Users\hasee\Pictures\Camera Roll\1.jpg
-order(string) | 传入图片序号  | 1
+carousel(file) | 传入轮播图文件  | C:\Users\hasee\Pictures\Camera Roll\1.jpg
+order(string) | 传入轮播图序号  | 1
 
 成功返回 
  ```json
@@ -601,6 +605,7 @@ order(string) | 传入比赛序号  | 1
  
  参数(类型) | 说明 | 示例
  ----|------|----
+ id(int) | 传入比赛id  | 1
  name(string) | 传入比赛名称  | emmm比赛
  desc(string) | 传入比赛具体信息  | 123456789098765432345678876543234567898765
  short_desc(string) | 传入简要比赛具体信息)  | 123456789

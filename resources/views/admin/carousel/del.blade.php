@@ -108,14 +108,12 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="http://localhost/saiyou/public/carousel/add"><i class="fa fa-circle-o"></i>添加轮播图</a></li>
-                    </ul>
-                    <ul class="treeview-menu">
+                        <li><a href="http://localhost/saiyou/public/carousel/add"><i class="fa fa-circle-o"></i>添加轮播图</a></li>
                         <li class="active"><a href="http://localhost/saiyou/public/carousel/del"><i class="fa fa-circle-o"></i>删除轮播图</a></li>
                     </ul>
                 </li>
 
-                <li class="active treeview">
+                <li class="treeview">
                     <a href="#">
                         <i class="fa fa-dashboard"></i> <span>比赛类别</span>
                         <span class="pull-right-container">
@@ -123,14 +121,12 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="http://localhost/saiyou/public/type/add"><i class="fa fa-circle-o"></i>添加比赛类别</a></li>
-                    </ul>
-                    <ul class="treeview-menu">
-                        <li class="active"><a href="http://localhost/saiyou/public/type/del"><i class="fa fa-circle-o"></i>删除比赛类别</a></li>
+                        <li><a href="http://localhost/saiyou/public/type/add"><i class="fa fa-circle-o"></i>添加比赛类别</a></li>
+                        <li><a href="http://localhost/saiyou/public/type/del"><i class="fa fa-circle-o"></i>删除比赛类别</a></li>
                     </ul>
                 </li>
 
-                <li class="active treeview">
+                <li class="treeview">
                     <a href="#">
                         <i class="fa fa-dashboard"></i> <span>比赛详情</span>
                         <span class="pull-right-container">
@@ -138,13 +134,9 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="http://localhost/saiyou/public/desc/add"><i class="fa fa-circle-o"></i>添加比赛</a></li>
-                    </ul>
-                    <ul class="treeview-menu">
-                        <li class="active"><a href="http://localhost/saiyou/public/desc/edit"><i class="fa fa-circle-o"></i>修改比赛</a></li>
-                    </ul>
-                    <ul class="treeview-menu">
-                        <li class="active"><a href="http://localhost/saiyou/public/desc/del"><i class="fa fa-circle-o"></i>删除比赛</a></li>
+                        <li><a href="http://localhost/saiyou/public/desc/add"><i class="fa fa-circle-o"></i>添加比赛</a></li>
+                        <li><a href="http://localhost/saiyou/public/desc/edit"><i class="fa fa-circle-o"></i>修改比赛</a></li>
+                        <li><a href="http://localhost/saiyou/public/desc/del"><i class="fa fa-circle-o"></i>删除比赛</a></li>
                     </ul>
                 </li>
 

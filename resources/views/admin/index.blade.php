@@ -108,14 +108,12 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="http://localhost/saiyou/public/carousel/add"><i class="fa fa-circle-o"></i>添加轮播图</a></li>
-          </ul>
-          <ul class="treeview-menu">
-            <li class="active"><a href="http://localhost/saiyou/public/carousel/del"><i class="fa fa-circle-o"></i>删除轮播图</a></li>
+            <li><a href="http://localhost/saiyou/public/carousel/add"><i class="fa fa-circle-o"></i>添加轮播图</a></li>
+            <li><a href="http://localhost/saiyou/public/carousel/del"><i class="fa fa-circle-o"></i>删除轮播图</a></li>
           </ul>
         </li>
 
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>比赛类别</span>
             <span class="pull-right-container">
@@ -123,14 +121,12 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="http://localhost/saiyou/public/type/add"><i class="fa fa-circle-o"></i>添加比赛类别</a></li>
-          </ul>
-          <ul class="treeview-menu">
-            <li class="active"><a href="http://localhost/saiyou/public/type/del"><i class="fa fa-circle-o"></i>删除比赛类别</a></li>
+            <li><a href="http://localhost/saiyou/public/type/add"><i class="fa fa-circle-o"></i>添加比赛类别</a></li>
+            <li><a href="http://localhost/saiyou/public/type/del"><i class="fa fa-circle-o"></i>删除比赛类别</a></li>
           </ul>
         </li>
 
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>比赛详情</span>
             <span class="pull-right-container">
@@ -138,13 +134,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="http://localhost/saiyou/public/desc/add"><i class="fa fa-circle-o"></i>添加比赛</a></li>
-          </ul>
-          <ul class="treeview-menu">
-            <li class="active"><a href="http://localhost/saiyou/public/desc/edit"><i class="fa fa-circle-o"></i>修改比赛</a></li>
-          </ul>
-          <ul class="treeview-menu">
-            <li class="active"><a href="http://localhost/saiyou/public/desc/del"><i class="fa fa-circle-o"></i>删除比赛</a></li>
+            <li><a href="http://localhost/saiyou/public/desc/add"><i class="fa fa-circle-o"></i>添加比赛</a></li>
+            <li><a href="http://localhost/saiyou/public/desc/edit"><i class="fa fa-circle-o"></i>修改比赛</a></li>
+            <li><a href="http://localhost/saiyou/public/desc/del"><i class="fa fa-circle-o"></i>删除比赛</a></li>
           </ul>
         </li>
 
@@ -170,7 +162,6 @@
   </footer>
 
   <!-- Control Sidebar -->
-
 </div>
 <!-- ./wrapper -->
 
@@ -183,5 +174,26 @@
 <script src="{{asset('/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('/dist/js/adminlte.min.js')}}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button);
+</script>
+<!-- jQuery Knob Chart -->
+<script src="{{asset('/bower_components/jquery-knob/dist/jquery.knob.min.js')}}"></script>
+<!-- daterangepicker -->
+<script src="{{asset('/bower_components/moment/min/moment.min.js')}}"></script>
+<script src="{{asset('/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+<!-- datepicker -->
+<script src="{{asset('/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="{{asset('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+<!-- Slimscroll -->
+<script src="{{asset('/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+<!-- FastClick -->
+<script src="{{asset('/bower_components/fastclick/lib/fastclick.js')}}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{asset('/dist/js/pages/dashboard.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('/dist/js/demo.js')}}"></script>
 </body>
 </html>

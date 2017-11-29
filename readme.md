@@ -208,7 +208,7 @@ glory_pic(file) | 传入荣誉墙证书图片  | C:\Users\hasee\Pictures\Camera 
  ```
 
 
- #### 修改个人信息
+ #### 显示个人信息
  
 > http://www.thmaoqiu.cn/saiyou/public/index.php/user/show
 

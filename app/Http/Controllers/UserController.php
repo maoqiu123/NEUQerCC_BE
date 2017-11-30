@@ -26,7 +26,27 @@ class UserController extends Controller
     }
     public function edit(Request $request){
         $edit = new RegisterController();
-        return $edit->edit($request->phone,$request->name,$request->gender,$request->major,$request->grade,$request->studentid,$request->good_at,$request->file('pic'),$request->glory_name,$request->glory_time,$request->file('glory_pic'));
+        return $edit->edit($request->phone,$request->name,$request->gender,$request->major,$request->grade,$request->studentid,$request->good_at,$request->file('pic'));
+    }
+    public function show(Request $request){
+        $show = new RegisterController();
+        return $show->show($request->phone);
+    }
+    public function glory_add(Request $request){
+        $glory = new RegisterController();
+        return $glory->glory_add($request->phone,$request->glory_name,$request->glory_time,$request->file('glory_pic'));
+    }
+    public function glory_edit(Request $request){
+        $glory = new RegisterController();
+        return $glory->glory_edit($request->phone,intval($request->order),$request->glory_name,$request->glory_time,$request->file('glory_pic'));
+    }
+    public function glory_del(Request $request){
+        $glory = new RegisterController();
+        return $glory->glory_del($request->phone,intval($request->order));
+    }
+    public function glory_show(Request $request){
+        $show = new RegisterController();
+        return $show->glory_show($request->phone);
     }
     public function login(Request $request){
         $login = new LoginController();
@@ -37,10 +57,8 @@ class UserController extends Controller
         $forgot = new ForgotPasswordController();
         return $forgot->forgot($request->phone, $request->password);
     }
-    public function show(Request $request){
-        $show = new RegisterController();
-        return $show->show($request->phone);
-    }
+
+
 
 //    public function loginout(Request $request){
 //        $login = new LoginController();

@@ -138,9 +138,16 @@ class CompetitionDesc extends Model
         if ($page == '') $page = 1;
         if ($size == '') $size = 3;
         if ($competitiondesc = CompetitionDesc::orderBy('created_at')->skip($size * $page - $size)->take($size)->get()){
-            return response()->json(['code'=>0,'msg'=>'查询队伍成功','data'=>['totalCount' => sizeof($competitiondesc),'item' => $competitiondesc]]);
+            for ($i = 0;$i < sizeof($competitiondesc);$i ++){
+                $result[$i]['id'] = $competitiondesc[$i]->id;
+                $result[$i]['name'] = $competitiondesc[$i]->name;
+                $result[$i]['short_desc'] = $competitiondesc[$i]->short_desc;
+                $result[$i]['registration_time'] = $competitiondesc[$i]->registration_time;
+                $result[$i]['competition_time'] = $competitiondesc[$i]->competition_time;
+            }
+            return response()->json(['code'=>0,'msg'=>'查询比赛成功','data'=>['totalCount' => sizeof($competitiondesc),'page' => $page,'item' => $result]]);
         }else{
-            return response()->json(['code'=>1,'msg'=>'查询队伍失败']);
+            return response()->json(['code'=>1,'msg'=>'查询比赛失败']);
         }
     }
 

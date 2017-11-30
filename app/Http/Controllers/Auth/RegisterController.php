@@ -65,7 +65,7 @@ class RegisterController extends Controller
 
     }
 
-    public function edit($phone,$name,$gender,$major,$grade,$studentid,$good_at,$pic,$glory_name,$glory_time,$glory_pic){
+    public function edit($phone,$name,$gender,$major,$grade,$studentid,$good_at,$pic){
         if ($user = User::where('phone',$phone)->first()){
             $user->name = $name;
             $user->gender = $gender;
@@ -73,28 +73,6 @@ class RegisterController extends Controller
             $user->grade = $grade;
             $user->studentid = $studentid;
             $user->good_at = $good_at;
-
-            if ($glory_pic != ''){
-                $path1 = $glory_pic->storeAs('glory_pics',uniqid().'.jpg');
-                if ($user->glory_name != '' || $user->glory_time != '' || $user->glory_pic != ''){
-                    $user->glory_name = $user->glory_name.','.$glory_name;
-                    $user->glory_time = $user->glory_time.','.$glory_time;
-                    $user->glory_pic = $user->glory_pic.','.'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path1;
-                }else{
-                    $user->glory_name = $glory_name;
-                    $user->glory_time = $glory_time;
-                    $user->glory_pic = 'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path1;
-                }
-            }else{
-                if ($user->glory_name != '' && $user->glory_time != '' && $user->glory_pic != ''){
-                    $user->glory_name = $user->glory_name.','.$glory_name;
-                    $user->glory_time = $user->glory_time.','.$glory_time;
-                }else{
-                    $user->glory_name = $glory_name;
-                    $user->glory_time = $glory_time;
-                }
-            }
-
             if ($pic != ''){
                 $path2 = $pic->storeAs('pics', uniqid().'.jpg');
                 $user->pic = 'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path2;
@@ -113,12 +91,139 @@ class RegisterController extends Controller
 
     public function show($phone){
         if ($user = User::where('phone',$phone)->first()){
-            return response()->json(['code'=>0,'msg'=>'查询用户资料成功','data'=>$user]);
+            $result['username'] = $user->username;
+            $result['phone'] = $user->phone;
+            $result['pic'] = $user->pic;
+            $result['name'] = $user->name;
+            $result['major'] = $user->major;
+            $result['grade'] = $user->grade;
+            $result['studentid'] = $user->studentid;
+            $result['gender'] = $user->gender;
+            $result['good_at'] = $user->good_at;
+            return response()->json(['code'=>0,'msg'=>'查询用户资料成功','data'=>$result]);
         }else{
             return response()->json(['code'=>1,'msg'=>'查询用户资料失败']);
         }
+    }
 
+    public function glory_add($phone,$glory_name,$glory_time,$glory_pic){
+        $user = User::where('phone',$phone)->first();
+        if ($glory_pic != ''){
+            $path1 = $glory_pic->storeAs('glory_pics',uniqid().'.jpg');
+            if ($user->glory_name != '' || $user->glory_time != '' || $user->glory_pic != ''){
+                $user->glory_name = $user->glory_name.','.$glory_name;
+                $user->glory_time = $user->glory_time.','.$glory_time;
+                $user->glory_pic = $user->glory_pic.','.'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path1;
+            }else{
+                $user->glory_name = $glory_name;
+                $user->glory_time = $glory_time;
+                $user->glory_pic = 'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path1;
+            }
+            if ($user->save()){
+                return response()->json(['code'=>0,'msg'=>'添加荣誉墙成功']);
+            }else{
+                return response()->json(['code'=>1,'msg'=>'添加荣誉墙失败']);
+            }
+        }else{
+            return response()->json(['code'=>2,'msg'=>'证明图片不能为空']);
+        }
+    }
 
+    public function glory_edit($phone, $order, $glory_name, $glory_time, $glory_pic)
+    {
+        if (isset($glory_pic)){
+            $user = User::where('phone', $phone)->first();
+            $glory_names = explode(',', $user->glory_name);
+            $glory_times = explode(',', $user->glory_time);
+            $glory_pics = explode(',', $user->glory_pic);
+
+            $glory_names[$order - 1] = $glory_name;
+            $glory_times[$order - 1] = $glory_time;
+            $path = $glory_pic->storeAs('glory_pics', uniqid() . '.jpg');
+            $glory_pic = 'http://www.thmaoqiu.cn/saiyou/storage/app/' . $path;
+            $glory_pics[$order - 1] = $glory_pic;
+
+            $glory_names = implode(',', $glory_names);
+            $glory_times = implode(',', $glory_times);
+            $glory_pics = implode(',', $glory_pics);
+
+            $user->glory_name = $glory_names;
+            $user->glory_time = $glory_times;
+            $user->glory_pic = $glory_pics;
+
+            if ($user->save()){
+                return response()->json(['code'=>0,'msg'=>'修改荣誉墙成功']);
+            }else{
+                return response()->json(['code'=>1,'msg'=>'修改荣誉墙失败']);
+            }
+        }else{
+            $user = User::where('phone', $phone)->first();
+            $glory_names = explode(',', $user->glory_name);
+            $glory_times = explode(',', $user->glory_time);
+
+            $glory_names[$order - 1] = $glory_name;
+            $glory_times[$order - 1] = $glory_time;
+
+            $glory_names = implode(',', $glory_names);
+            $glory_times = implode(',', $glory_times);
+
+            $user->glory_name = $glory_names;
+            $user->glory_time = $glory_times;
+
+            if ($user->save()){
+                return response()->json(['code'=>0,'msg'=>'修改荣誉墙成功']);
+            }else{
+                return response()->json(['code'=>1,'msg'=>'修改荣誉墙失败']);
+            }
+        }
+    }
+
+    public function glory_del($phone, $order){
+        if ($user = User::where('phone', $phone)->first()){
+            $glory_names = explode(',', $user->glory_name);
+            $glory_times = explode(',', $user->glory_time);
+            $glory_pics = explode(',', $user->glory_pic);
+            $orders = explode(',',$order);
+            if ($order >= sizeof($glory_names)){
+                return response()->json(['code'=>3,'msg'=>'该荣誉墙序号不存在']);
+            }
+            foreach ($orders as $order){
+                unset($glory_names[$order-1]);
+                unset($glory_times[$order-1]);
+                unset($glory_pics[$order-1]);
+            }
+            $glory_names = implode(',', $glory_names);
+            $glory_times = implode(',', $glory_times);
+            $glory_pics = implode(',', $glory_pics);
+            $user->glory_name = $glory_names;
+            $user->glory_time = $glory_times;
+            $user->glory_pic = $glory_pics;
+
+            if ($user->save()){
+                return response()->json(['code'=>0,'msg'=>'删除荣誉墙成功']);
+            }else{
+                return response()->json(['code'=>1,'msg'=>'删除荣誉墙失败']);
+            }
+        }else{
+            return response()->json(['code'=>2,'msg'=>'找不到该用户']);
+        }
+    }
+
+    public function glory_show($phone){
+        if ($user = User::where('phone',$phone)->first()){
+            $glory_names = explode(',', $user->glory_name);
+            $glory_times = explode(',', $user->glory_time);
+            $glory_pics = explode(',', $user->glory_pic);
+            for ($i = 0;$i < sizeof($glory_names);$i ++){
+                $result[$i]['order'] = $i;
+                $result[$i]['glory_name'] = $glory_names[$i];
+                $result[$i]['glory_time'] = $glory_times[$i];
+                $result[$i]['glory_pic'] = $glory_pics[$i];
+            }
+            return response()->json(['code'=>0,'msg'=>'查询用户荣誉墙资料成功','data'=>$result]);
+        }else{
+            return response()->json(['code'=>1,'msg'=>'查询用户荣誉墙资料失败']);
+        }
     }
 
 

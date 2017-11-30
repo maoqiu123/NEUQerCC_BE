@@ -181,9 +181,6 @@ grade(int) | 传入年级  | 2016
 studentid(int) | 传入学号  | 20166666
 good_at(string) | 传入擅长领域  | 后端开发
 pic(file) | 传入用户头像  | C:\Users\hasee\Pictures\Camera Roll\1.jpg
-glory_name(string) | 传入荣誉墙赛事名称  | 蓝桥杯
-glory_time(string) | 传入荣誉墙获奖时间  | 2017
-glory_pic(file) | 传入荣誉墙证书图片  | C:\Users\hasee\Pictures\Camera Roll\2.jpg
 
 成功返回 
  ```json
@@ -208,7 +205,7 @@ glory_pic(file) | 传入荣誉墙证书图片  | C:\Users\hasee\Pictures\Camera 
  ```
 
 
- #### 修改个人信息
+ #### 查询个人信息
  
 > http://www.thmaoqiu.cn/saiyou/public/index.php/user/show
 
@@ -235,14 +232,10 @@ phone(string) | 传入手机号  | 12345678912
         "grade": 2016,
         "studentid": 20166666,
         "gender": 0,
-        "good_at": "后端开发",
-        "glory_name": "蓝桥杯,蓝桥杯",
-        "glory_time": "2017,2017",
-        "glory_pic": ",http://www.thmaoqiu.cn/saiyou/storage/app/glory_pics/5a0c57e273537.jpg"
+        "good_at": "后端开发"
     }
 }
  ```
-
 失败返回
  ```json
 {
@@ -250,6 +243,166 @@ phone(string) | 传入手机号  | 12345678912
     "msg": "查询用户资料失败"
 }
  ```
+ 
+### 荣誉墙
+
+#### 添加荣誉墙
+
+> http://www.thmaoqiu.cn/saiyou/public/index.php/user/glory_add
+
+数据传输方式：POST
+
+数据传输格式为：JSON
+
+
+参数(类型) | 说明 | 示例
+----|------|----
+phone(string) | 传入手机号  | 123456789
+glory_name(string) | 传入荣誉墙赛事名称  | 蓝桥杯
+glory_time(string) | 传入荣誉墙获奖时间  | 2017
+glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2.jpg
+
+成功返回 
+ ```json
+{
+    "code": 0,
+    "msg": "添加荣誉墙成功"
+}
+ ```
+
+失败返回
+ ```json
+{
+    "code": 1,
+    "msg": "添加荣誉墙失败"
+}
+ ```
+ ```json
+{
+    "code": 2,
+    "msg": "证明图片不能为空"
+}
+ ```
+ 
+ #### 修改荣誉墙
+ 
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/user/glory_edit
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ phone(string) | 传入手机号  | 123456789 
+ order(int) | 传入要修改的荣誉墙序号 | 2
+ glory_name(string) | 传入荣誉墙赛事名称  | 蓝桥杯2
+ glory_time(string) | 传入荣誉墙获奖时间  | 2016
+ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2.jpg
+ 
+ 成功返回 
+  ```json
+ {
+     "code": 0,
+     "msg": "修改荣誉墙成功"
+ }
+  ```
+ 
+ 失败返回
+  ```json
+ {
+     "code": 1,
+     "msg": "修改荣誉墙失败"
+ }
+  ```
+
+ #### 删除荣誉墙
+ 
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/user/glory_del
+ 
+ 数据传输方式：DELETE
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ phone(string) | 传入手机号  | 123456789 
+ order(int) | 传入要修改的荣誉墙序号 | 2
+ 
+ 成功返回 
+  ```json
+ {
+     "code": 0,
+     "msg": "删除荣誉墙成功"
+ }
+  ```
+ 
+ 失败返回
+  ```json
+ {
+     "code": 1,
+     "msg": "删除荣誉墙失败"
+ }
+  ```
+  ```json
+ {
+     "code": 2,
+     "msg": "找不到该用户"
+ }
+  ```
+  ```json
+ {
+     "code": 3,
+     "msg": "该荣誉墙序号不存在"
+ }
+  ```
+  
+#### 删除荣誉墙
+ 
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/user/glory_show
+ 
+ 数据传输方式：GET
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ phone(string) | 传入手机号  | 123456789 
+ 
+ 成功返回 
+  ```json
+{
+    "code": 0,
+    "msg": "查询用户荣誉墙资料成功",
+    "data": [
+        {
+            "order": 0,
+            "glory_name": "蓝桥杯",
+            "glory_time": "2017",
+            "glory_pic": "http://www.thmaoqiu.cn/saiyou/storage/app/glory_pics/5a1ecb3fce894.jpg"
+        },
+        {
+            "order": 1,
+            "glory_name": "蓝桥杯3",
+            "glory_time": "2017",
+            "glory_pic": "http://www.thmaoqiu.cn/saiyou/storage/app/glory_pics/5a1ecc350dea8.jpg"
+        }
+    ]
+}
+  ```
+ 
+ 失败返回
+  ```json
+ {
+     "code": 1,
+     "msg": "查询用户荣誉墙资料失败"
+ }
+  ```
+
+
  
  ### 比赛轮播图
  
@@ -469,7 +622,7 @@ order(string) | 传入比赛序号  | 1
  参数(类型) | 说明 | 示例
  ----|------|----
  name(string) | 传入比赛类别  | 数学类
- order(string) | 传入图片序号  | 1
+ order(string) | 传入比赛序号  | 1
  
  成功返回 
   ```json
@@ -506,11 +659,6 @@ order(string) | 传入比赛序号  | 1
   数据传输方式：GET
   
   数据传输格式为：JSON
-  
-  
-  参数(类型) | 说明 | 示例
-  ----|------|----
-  order(string) | 传入图片序号  | 1
   
   成功返回 
    ```json
@@ -742,19 +890,17 @@ order(string) | 传入比赛序号  | 1
   ```json
 {
     "code": 0,
-    "msg": "查询队伍成功",
+    "msg": "查询比赛成功",
     "data": {
         "totalCount": 1,
+        "page": 2,
         "item": [
             {
                 "id": 9,
                 "name": "bilibili",
-                "desc": "bbbbbbbbbbbbbb",
                 "short_desc": "b123",
                 "registration_time": "2017-10-01",
-                "competition_time": "2017-10-30",
-                "pic": "http://www.thmaoqiu.cn/saiyou/storage/app/competitions/59f4804f62901.jpg",
-                "type": "bilibili类"
+                "competition_time": "2017-10-30"
             }
         ]
     }
@@ -765,7 +911,172 @@ order(string) | 传入比赛序号  | 1
 ```json
  {
      "code": 1,
-     "msg": "查询队伍失败"
+     "msg": "查询比赛失败"
+ }
+```
+
+### 大神攻略
+
+#### 添加大神攻略
+
+> http://www.thmaoqiu.cn/saiyou/public/index.php/raider/add
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ id(int) | 传入攻略id  | 1
+ name(string) | 传入攻略名字（题目）  | bilibili比赛
+ desc(string) | 传入攻略内容  | 水水水水水水水水水水水水水水水水水水水水水
+ pic(file) | 传入攻略缩略图  | C:\Users\hasee\Pictures\Camera Roll\1.jpg
+ 
+ 
+ 成功返回 
+```json
+ {
+     "code": 0,
+     "msg": "添加大神攻略成功"
+ }
+```
+ 
+ 失败返回
+  ```json
+ {
+     "code": 1,
+     "msg": "添加大神攻略失败"
+ }
+  ```
+```json
+ {
+     "code": 2,
+     "msg": "攻略id不能为空"
+ }
+```
+```json
+ {
+     "code": 3,
+     "msg": "该攻略id已存在"
+ }
+```
+
+#### 修改大神攻略
+
+> http://www.thmaoqiu.cn/saiyou/public/index.php/raider/edit
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ id(int) | 传入攻略id  | 1
+ name(string) | 传入攻略名字（题目）(选填)  | bilibili比赛
+ desc(string) | 传入攻略内容(选填)  | 水水水水水水水水水水水水水水水水水水水水水
+ pic(file) | 传入攻略缩略图(选填)  | C:\Users\hasee\Pictures\Camera Roll\1.jpg
+ 
+ 
+ 成功返回 
+```json
+ {
+     "code": 0,
+     "msg": "修改大神攻略成功"
+ }
+```
+ 
+ 失败返回
+  ```json
+ {
+     "code": 1,
+     "msg": "修改大神攻略失败"
+ }
+  ```
+```json
+ {
+     "code": 2,
+     "msg": "攻略id不能为空"
+ }
+```
+```json
+ {
+     "code": 3,
+     "msg": "该攻略id不存在"
+ }
+```
+
+#### 删除大神攻略
+
+> http://www.thmaoqiu.cn/saiyou/public/index.php/raider/del
+ 
+ 数据传输方式：DELETE
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ id(int) | 传入攻略id  | 1
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "删除大神攻略成功"
+}
+```
+ 
+ 失败返回
+  ```json
+ {
+     "code": 1,
+     "msg": "删除大神攻略失败,请检查攻略id是否正确"
+ }
+  ```
+  ```json
+ {
+     "code": 2,
+     "msg": "删除大神攻略失败"
+ }
+  ```
+
+#### 查询大神攻略
+   
+> http://www.thmaoqiu.cn/saiyou/public/index.php/raider/show
+    
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ id(int) | 传入攻略id  | 1
+    
+成功返回 
+```json
+   {
+       "code": 0,
+       "msg": "查询比赛和大神攻略成功",
+       "data": {
+           "id": 1,
+           "name": "bilibili",
+           "desc": "bbbbbbbbbbbbbb",
+           "pic": "http://www.thmaoqiu.cn/saiyou/storage/app/competitions/59f4804f62901.jpg", 
+           "type": "bilibili类",
+           "god_name": "sadasda",
+           "god_desc": "asdad",
+           "god_pic": "http://www.thmaoqiu.cn/saiyou/storage/app/raiders/5a1e78d76e2c1.jpg"
+       }
+   }
+```
+ 
+失败返回
+```json
+ {
+     "code": 1,
+     "msg": "查询比赛和大神攻略失败,请检查id是否正确"
  }
 ```
 
@@ -783,7 +1094,7 @@ order(string) | 传入比赛序号  | 1
  参数(类型) | 说明 | 示例
  ----|------|----
  team_name(string) | 传入队伍名称  | 毛球小队
- competition_type(string) | 传入比赛名称  | bilibili比赛
+ competition_desc(string) | 传入比赛名称  | bilibili比赛
  project_name(string) | 传入项目名称  | 赛友
  declaration(string) | 传入队伍宣言  | 我们是最棒的！
  good_at(string) | 传入目标队员的擅长  | 前端开发,后端开发
@@ -818,7 +1129,7 @@ order(string) | 传入比赛序号  | 1
  ----|------|----
  team_id(int) | 传入队伍id  | 4006134
  team_name(string) | 传入队伍名称  | 毛球小队
- competition_type(string) | 传入比赛名称  | bilibili比赛
+ competition_desc(string) | 传入比赛名称  | bilibili比赛
  project_name(string) | 传入项目名称  | 赛友
  declaration(string) | 传入队伍宣言  | 我们是最棒的！
  good_at(string) | 传入目标队员的擅长  | 前端开发,后端开发
@@ -905,14 +1216,22 @@ order(string) | 传入比赛序号  | 1
  
  参数(类型) | 说明 | 示例
  ----|------|----
- team_id(int) | 传入队伍id  | 4006134
+ team_id(int) | 传入队伍id  | 1
  
  
  成功返回 
 ```json
  {
      "code": 0,
-     "msg": "查询队伍成功"
+     "msg": "查询队伍成功",
+     "data": {
+             "id": 1,
+             "team_name": null,
+             "competition_desc": "1",
+             "project_name": null,
+             "declaration": null,
+             "good_at": null
+     }
  }
 ```
  
@@ -951,15 +1270,64 @@ order(string) | 传入比赛序号  | 1
     "code": 0,
     "msg": "查询队伍成功",
     "data": {
-        "0": {
-            "id": 8817871,
-            "team_name": "毛球小队9",
-            "competition_type": "bilibili比赛",
-            "project_name": "赛友9",
-            "declaration": "我们是最棒的！",
-            "good_at": "前端开发,后端开发"
-        },
-        "totalCount": 1
+        "totalCount": 1,
+        "page": 1,
+        "item": [
+            {
+                "id": 8817871,
+                "team_name": "毛球小队9",
+                "competition_desc": "bilibili比赛",
+                "project_name": "赛友9",
+                "declaration": "我们是最棒的！",
+                "good_at": "前端开发,后端开发"
+            }
+        ]
+    }
+}
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "查询队伍失败"
+ }
+```
+
+#### 推荐队伍
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/team/recommend
+ 
+ 数据传输方式：GET
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ competition_type(string) | 传入比赛类别  | bilibili比赛
+ page(int) | 传入第几页  | 2
+ size(int) | 传入每页显示数量  | 8
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "查询队伍成功",
+    "data": {
+        "totalCount": 1,
+        "page": 1,
+        "item": [
+            {
+                "id": 1,
+                "team_name": null,
+                "competition_desc": "bilibili比赛",
+                "project_name": null,
+                "declaration": null,
+                "good_at": null
+            }
+        ]
     }
 }
 ```

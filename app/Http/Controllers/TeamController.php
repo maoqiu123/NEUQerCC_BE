@@ -34,4 +34,8 @@ class TeamController extends Controller
         $team = new Team();
         return $team->teams_show(intval($request->page),intval($request->size));
     }
+    public function recommend(Request $request){
+        $team = new Team();
+        return $team->recommend($request->competition_type,intval($request->page),intval($request->size));
+    }
 }

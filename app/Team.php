@@ -15,12 +15,12 @@ class Team extends Model
 {
     protected $table = "teams";
     protected $fillable = [
-        'id','team_name','competition_type','project_name','declaration','good_at',
+        'id','team_name','competition_desc','project_name','declaration','good_at',
     ];
     protected $hidden = [
         'created_at','updated_at'
     ];
-    public function add($team_name,$competition_type,$project_name,$declaration,$good_at){
+    public function add($team_name,$competition_desc,$project_name,$declaration,$good_at){
 
         $team = new Team();
         $id = rand(1000000,9999999);
@@ -35,7 +35,7 @@ class Team extends Model
         $data = [
             'id' => $id,
             'team_name' => $team_name,
-            'competition_type' => $competition_type,
+            'competition_desc' => $competition_desc,
             'project_name' => $project_name,
             'declaration' => $declaration,
             'good_at' => $good_at
@@ -46,7 +46,7 @@ class Team extends Model
             return response()->json(['code'=>1,'msg'=>'保存队伍信息失败']);
         }
     }
-    public function edit($id,$team_name,$competition_type,$project_name,$declaration,$good_at){
+    public function edit($id,$team_name,$competition_desc,$project_name,$declaration,$good_at){
         if ($id == ''){
             return response()->json(['code'=>2,'msg'=>'队伍id不能为空']);
         }
@@ -55,7 +55,7 @@ class Team extends Model
         }
         $data = [
             'team_name' => $team_name,
-            'competition_type' => $competition_type,
+            'competition_desc' => $competition_desc,
             'project_name' => $project_name,
             'declaration' => $declaration,
             'good_at' => $good_at,
@@ -95,9 +95,26 @@ class Team extends Model
         if ($page == '') $page = 1;
         if ($size == '') $size = 8;
         if ($team = Team::orderBy('created_at')->skip($size * $page - $size)->take($size)->get()){
-            return response()->json(['code'=>0,'msg'=>'查询队伍成功','data'=>['totalCount' => sizeof($team),'item' => $team]]);
+            return response()->json(['code'=>0,'msg'=>'查询队伍成功','data'=>['totalCount' => sizeof($team),'page'=>$page,'item' => $team]]);
         }else{
-            return response()->json(['code'=>1,'msg'=>'找不到该队伍id']);
+            return response()->json(['code'=>1,'msg'=>'查询队伍失败']);
+        }
+    }
+
+    public function recommend($competition_desc,$page,$size){
+        if ($page == '') $page = 1;
+        if ($size == '') $size = 8;
+        if ($competition_desc == ''){
+            if ($team = Team::orderBy('created_at')->skip($size * $page - $size)->take($size)->get()){
+                return response()->json(['code'=>0,'msg'=>'查询队伍成功','data'=>['totalCount' => sizeof($team),'page'=>$page,'item' => $team]]);
+            }else{
+                return response()->json(['code'=>1,'msg'=>'查询队伍失败']);
+            }
+        }
+        if ($team = Team::where('competition_desc', $competition_desc)->orderBy('created_at')->skip($size * $page - $size)->take($size)->get()) {
+            return response()->json(['code' => 0, 'msg' => '查询队伍成功', 'data' => ['totalCount' => sizeof($team),'page'=>$page, 'item' => $team]]);
+        } else {
+            return response()->json(['code' => 1, 'msg' => '查询队伍失败']);
         }
     }
 

@@ -34,5 +34,10 @@ class VerifyCsrfToken extends BaseVerifier
         '/team/member_add',
         '/team/edit',
         '/team/del',
+
+        '/other/year_add',
+        '/other/year_del',
+        '/other/field_add',
+        '/other/field_del',
     ];
 }

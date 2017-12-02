@@ -1537,3 +1537,254 @@ order(string) | 传入比赛序号  | 1
      "msg": "查询队伍失败"
  }
 ```
+
+### 意见反馈
+
+#### 添加意见反馈
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/feedback
+ 
+ 数据传输方式：GET
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ content(string) | 传入意见反馈内容  | 吧来吧来吧来吧不啦不啦不辣辣不辣
+
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "已发送意见反馈"
+}
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "发送意见反馈失败"
+ }
+```
+
+### 后台数据添加
+
+#### 添加年份
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/other/year_add
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ content(string) | 传入年份  | 2016
+
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "添加年份成功"
+}
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "添加年份失败"
+ }
+```
+
+#### 删除年份
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/other/year_del
+ 
+ 数据传输方式：DELETE
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ order(string) | 传入年份序号  | 2
+
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "删除年份成功"
+}
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "删除年份失败"
+ }
+```
+```json
+ {
+     "code": 2,
+     "msg": "该序号年份不存在"
+ }
+```
+
+#### 查询年份
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/other/year_add
+ 
+ 数据传输方式：GET
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "查找年份成功",
+    "data": [
+        {
+            "order": 1,
+            "year": "2014"
+        },
+        {
+            "order": 2,
+            "year": "2015"
+        }
+    ]
+}
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "查找年份失败"
+ }
+```
+
+#### 添加擅长领域（资料编辑）
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/other/field_add
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ content(string) | 传入领域  | 前端
+
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "添加领域成功"
+}
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "添加领域失败"
+ }
+```
+
+#### 删除领域
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/other/field_del
+ 
+ 数据传输方式：DELETE
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ order(string) | 传入领域序号  | 2
+
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "删除领域成功"
+}
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "删除领域失败"
+ }
+```
+```json
+ {
+     "code": 2,
+     "msg": "该序号领域不存在"
+ }
+```
+
+#### 查询领域份
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/other/field_add
+ 
+ 数据传输方式：GET
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "查找领域成功",
+    "data": [
+        {
+            "order": 1,
+            "year": "2014"
+        },
+        {
+            "order": 2,
+            "year": "2015"
+        }
+    ]
+}
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "查找领域失败"
+ }
+```

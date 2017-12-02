@@ -55,6 +55,14 @@ Route::get('/team/show','TeamController@show');
 Route::get('/teams/show','TeamController@teams_show');
 Route::get('/team/recommend','TeamController@recommend');
 
+Route::post('/feedback','FeedbackController@feedback');
+
+Route::post('/other/year_add','OtherController@year_add');
+Route::delete('/other/year_del','OtherController@year_del');
+Route::get('/other/year_show','OtherController@year_show');
+Route::post('/other/field_add','OtherController@field_add');
+Route::delete('/other/field_del','OtherController@field_del');
+Route::get('/other/field_show','OtherController@field_show');
 
 Route::get('/index',function (){
     return view('admin/index');

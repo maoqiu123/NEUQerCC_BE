@@ -32,6 +32,10 @@ class UserController extends Controller
         $show = new RegisterController();
         return $show->show($request->phone);
     }
+    public function team_list(Request $request){
+        $team_list = new RegisterController();
+        return $team_list->team_list($request->phone);
+    }
     public function glory_add(Request $request){
         $glory = new RegisterController();
         return $glory->glory_add($request->phone,$request->glory_name,$request->glory_time,$request->file('glory_pic'));

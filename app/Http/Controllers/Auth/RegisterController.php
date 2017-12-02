@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Team;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -100,9 +101,28 @@ class RegisterController extends Controller
             $result['studentid'] = $user->studentid;
             $result['gender'] = $user->gender;
             $result['good_at'] = $user->good_at;
+            $result['team_num'] = sizeof(explode(',',$user->team_id));
             return response()->json(['code'=>0,'msg'=>'查询用户资料成功','data'=>$result]);
         }else{
             return response()->json(['code'=>1,'msg'=>'查询用户资料失败']);
+        }
+    }
+
+    public function team_list($phone){
+        if ($user = User::where('phone',$phone)->first()){
+            $team_ids = explode(',',$user->team_id);
+            $i = 0;
+            foreach ($team_ids as $team_id){
+                $team = Team::where('id',$team_id)->first();
+                $result[$i]['team_id'] = $team->id;
+                $result[$i]['team_name'] = $team->team_name;
+                $result[$i]['competition_desc'] = $team->competition_desc;
+                $result[$i]['team_member_num'] = sizeof(explode(',',$team->team_member));
+                $i++;
+            }
+            return response()->json(['code'=>0,'msg'=>'查询队伍列表成功','data'=>$result]);
+        }else{
+
         }
     }
 

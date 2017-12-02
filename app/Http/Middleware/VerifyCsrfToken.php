@@ -31,6 +31,7 @@ class VerifyCsrfToken extends BaseVerifier
         '/raider/edit',
         '/raider/del',
         '/team/add',
+        '/team/member_add',
         '/team/edit',
         '/team/del',
     ];

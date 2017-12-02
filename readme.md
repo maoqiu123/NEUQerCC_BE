@@ -232,7 +232,8 @@ phone(string) | 传入手机号  | 12345678912
         "grade": 2016,
         "studentid": 20166666,
         "gender": 0,
-        "good_at": "后端开发"
+        "good_at": "后端开发",
+        "team_num": 2
     }
 }
  ```
@@ -241,6 +242,48 @@ phone(string) | 传入手机号  | 12345678912
 {
     "code": 1,
     "msg": "查询用户资料失败"
+}
+ ```
+ 
+ #### 查询我的队伍
+ 
+> http://www.thmaoqiu.cn/saiyou/public/index.php/user/team_list
+
+数据传输方式：GET
+
+数据传输格式为：JSON
+
+
+参数(类型) | 说明 | 示例
+----|------|----
+phone(string) | 传入手机号  | 12345678912
+
+成功返回 
+ ```json
+{
+    "code": 0,
+    "msg": "查询队伍列表成功",
+    "data": [
+        {
+            "team_id": 1,
+            "team_name": null,
+            "competition_desc": null,
+            "team_member_num": 1
+        },
+        {
+            "team_id": 2,
+            "team_name": null,
+            "competition_desc": null,
+            "team_member_num": 1
+        }
+    ]
+}
+ ```
+失败返回
+ ```json
+{
+    "code": 1,
+    "msg": "查询队伍列表失败"
 }
  ```
  
@@ -1095,7 +1138,6 @@ order(string) | 传入比赛序号  | 1
  ----|------|----
  team_name(string) | 传入队伍名称  | 毛球小队
  competition_desc(string) | 传入比赛名称  | bilibili比赛
- project_name(string) | 传入项目名称  | 赛友
  declaration(string) | 传入队伍宣言  | 我们是最棒的！
  good_at(string) | 传入目标队员的擅长  | 前端开发,后端开发
  
@@ -1115,6 +1157,160 @@ order(string) | 传入比赛序号  | 1
      "msg": "保存队伍信息失败"
  }
   ```
+  ```json
+ {
+     "code": 2,
+     "msg": "此队长信息不存在"
+ }
+  ```
+
+#### 添加队伍成员
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/team/member_add
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ team_id(string) | 传入队伍id  | 1234644
+ phone(string) | 传入用户手机号  | 123456789
+ team_position(string) | 传入用户职位  | 0为队长，2为队员
+ 
+ 
+ 成功返回 
+  ```json
+ {
+     "code": 0,
+     "msg": "添加成员成功"
+ }
+  ```
+ 
+ 失败返回
+  ```json
+ {
+     "code": 1,
+     "msg": "添加队员失败"
+ }
+  ```
+  ```json
+ {
+     "code": 2,
+     "msg": "此用户信息不存在"
+ }
+  ```
+  ```json
+ {
+     "code": 3,
+     "msg": "队伍id不能为空"
+ }
+  ```
+  ```json
+ {
+     "code": 4,
+     "msg": "找不到该队伍id"
+ }
+  ```
+
+#### 删除队伍成员
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/team/member_del
+ 
+ 数据传输方式：DELETE
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ team_id(string) | 传入队伍id  | 1234644
+ phone(string) | 传入用户手机号  | 123456789
+ 
+ 
+ 成功返回 
+  ```json
+ {
+     "code": 0,
+     "msg": "删除成员成功"
+ }
+  ```
+ 
+ 失败返回
+  ```json
+ {
+     "code": 1,
+     "msg": "删除队员失败"
+ }
+  ```
+  ```json
+ {
+     "code": 2,
+     "msg": "此用户信息不存在"
+ }
+  ```
+  ```json
+ {
+     "code": 3,
+     "msg": "队伍id不能为空"
+ }
+  ```
+  ```json
+ {
+     "code": 4,
+     "msg": "找不到该队伍id"
+ }
+  ```
+  
+#### 查询队伍成员
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/team/member_show
+ 
+ 数据传输方式：GET
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ team_id(string) | 传入队伍id  | 1234644
+ 
+ 
+ 成功返回 
+  ```json
+{
+    "code": 0,
+    "msg": "查询成员信息成功",
+    "data": [
+        {
+            "name": "1",
+            "good_at": null,
+            "team_position": "队长"
+        },
+        {
+            "name": "1",
+            "good_at": null,
+            "team_position": "队员"
+        }
+    ]
+}
+  ```
+ 
+ 失败返回
+  ```json
+ {
+     "code": 1,
+     "msg": "用户phone不存在"
+ }
+  ```
+  ```json
+ {
+     "code": 2,
+     "msg": "该队伍不存在"
+ }
+  ```
+
   
 #### 修改队伍
 
@@ -1130,7 +1326,6 @@ order(string) | 传入比赛序号  | 1
  team_id(int) | 传入队伍id  | 4006134
  team_name(string) | 传入队伍名称  | 毛球小队
  competition_desc(string) | 传入比赛名称  | bilibili比赛
- project_name(string) | 传入项目名称  | 赛友
  declaration(string) | 传入队伍宣言  | 我们是最棒的！
  good_at(string) | 传入目标队员的擅长  | 前端开发,后端开发
  
@@ -1204,6 +1399,12 @@ order(string) | 传入比赛序号  | 1
      "msg": "找不到该队伍id"
  }
 ```
+```json
+ {
+     "code": 4,
+     "msg": "此队长信息不存在"
+ }
+```
 
 #### 查询单支队伍
 
@@ -1228,7 +1429,6 @@ order(string) | 传入比赛序号  | 1
              "id": 1,
              "team_name": null,
              "competition_desc": "1",
-             "project_name": null,
              "declaration": null,
              "good_at": null
      }
@@ -1277,7 +1477,6 @@ order(string) | 传入比赛序号  | 1
                 "id": 8817871,
                 "team_name": "毛球小队9",
                 "competition_desc": "bilibili比赛",
-                "project_name": "赛友9",
                 "declaration": "我们是最棒的！",
                 "good_at": "前端开发,后端开发"
             }
@@ -1323,7 +1522,6 @@ order(string) | 传入比赛序号  | 1
                 "id": 1,
                 "team_name": null,
                 "competition_desc": "bilibili比赛",
-                "project_name": null,
                 "declaration": null,
                 "good_at": null
             }

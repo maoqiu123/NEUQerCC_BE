@@ -21,6 +21,7 @@ Route::post('/forgot','UserController@forgot');
 
 Route::post('/user/edit','UserController@edit');
 Route::get('/user/show','UserController@show');
+Route::get('/user/team_list','UserController@team_list');
 Route::post('/user/glory_add','UserController@glory_add');
 Route::post('/user/glory_edit','UserController@glory_edit');
 Route::delete('/user/glory_del','UserController@glory_del');
@@ -45,6 +46,9 @@ Route::delete('/raider/del','RaiderController@del');
 Route::get('/raider/show','RaiderController@show');
 
 Route::post('/team/add','TeamController@add');
+Route::post('team/member_add','TeamController@member_add');
+Route::delete('team/member_del','TeamController@member_del');
+Route::get('team/member_show','TeamController@member_show');
 Route::post('/team/edit','TeamController@edit');
 Route::delete('/team/del','TeamController@del');
 Route::get('/team/show','TeamController@show');

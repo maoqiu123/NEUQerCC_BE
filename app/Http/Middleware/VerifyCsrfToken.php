@@ -27,6 +27,7 @@ class VerifyCsrfToken extends BaseVerifier
         '/desc/add',
         '/desc/edit',
         '/desc/del',
+        '/desc/search',
         '/raider/add',
         '/raider/edit',
         '/raider/del',
@@ -34,6 +35,7 @@ class VerifyCsrfToken extends BaseVerifier
         '/team/member_add',
         '/team/edit',
         '/team/del',
+        '/team/search',
 
         '/other/year_add',
         '/other/year_del',

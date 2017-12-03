@@ -40,6 +40,7 @@ Route::post('/desc/edit','CompetitionDescController@edit');
 Route::delete('/desc/del','CompetitionDescController@del');
 Route::get('/desc/show','CompetitionDescController@show');
 Route::get('/descs/show','CompetitionDescController@descs_show');
+Route::post('/desc/search','CompetitionDescController@search');
 Route::post('/raider/add','RaiderController@add');
 Route::post('/raider/edit','RaiderController@edit');
 Route::delete('/raider/del','RaiderController@del');
@@ -54,6 +55,7 @@ Route::delete('/team/del','TeamController@del');
 Route::get('/team/show','TeamController@show');
 Route::get('/teams/show','TeamController@teams_show');
 Route::get('/team/recommend','TeamController@recommend');
+Route::post('/team/search','TeamController@search');
 
 Route::post('/feedback','FeedbackController@feedback');
 

@@ -254,4 +254,19 @@ class Team extends Model
         }
     }
 
+    public function search($content){
+        $team = Team::get();
+        for ($i = 0;$i < sizeof($team);$i++){
+            if (str_contains($team[$i]['team_name'],$content)){
+                $result[$i] = $team[$i];
+            }
+        }
+        if(empty($result)){
+            return response()->json(['code'=>1,'msg'=>'搜索队伍失败']);
+        }else{
+            return response()->json(['code'=>0,'msg'=>'搜索队伍成功','data'=>$result]);
+        }
+
+    }
+
 }

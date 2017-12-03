@@ -151,6 +151,20 @@ class CompetitionDesc extends Model
         }
     }
 
+    public function search($content){
+        $desc = CompetitionDesc::get();
+        for ($i = 0;$i < sizeof($desc);$i++){
+            if (str_contains($desc[$i]['name'],$content)){
+                $result[$i] = $desc[$i];
+            }
+        }
+        if(empty($result)){
+            return response()->json(['code'=>1,'msg'=>'搜索比赛失败']);
+        }else{
+            return response()->json(['code'=>0,'msg'=>'搜索比赛成功','data'=>$result]);
+        }
+    }
+
 
 
 }

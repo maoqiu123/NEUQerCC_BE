@@ -958,6 +958,59 @@ order(string) | 传入比赛序号  | 1
  }
 ```
 
+#### 搜索比赛
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/desc/search
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ content(string) | 传入搜索内容（将会在比赛名字字段中搜索）  | 赛
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "搜索比赛成功",
+    "data": [
+        {
+            "id": 1,
+            "name": "大赛",
+            "desc": null,
+            "short_desc": null,
+            "registration_time": null,
+            "competition_time": null,
+            "pic": null,
+            "type": null
+        },
+        {
+            "id": 2,
+            "name": "蓝桥杯比赛",
+            "desc": null,
+            "short_desc": null,
+            "registration_time": null,
+            "competition_time": null,
+            "pic": null,
+            "type": null
+        }
+    ]
+}
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "搜索比赛失败"
+ }
+```
+
+
 ### 大神攻略
 
 #### 添加大神攻略
@@ -1537,6 +1590,58 @@ order(string) | 传入比赛序号  | 1
      "msg": "查询队伍失败"
  }
 ```
+
+
+#### 查询队伍
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/team/search
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ content(string) | 传入搜索内容（将会在队伍名字字段中搜索）  | 毛球
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "搜索队伍成功",
+    "data": {
+        "0": {
+            "id": 1,
+            "team_name": "毛球2131",
+            "competition_desc": null,
+            "declaration": null,
+            "good_at": null,
+            "team_member": "123456789,123456789",
+            "team_position": "0,2"
+        },
+        "3": {
+            "id": 4,
+            "team_name": "毛球求",
+            "competition_desc": null,
+            "declaration": null,
+            "good_at": null,
+            "team_member": null,
+            "team_position": null
+        }
+    }
+}
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "搜索队伍失败"
+ }
+```
+
 
 ### 意见反馈
 

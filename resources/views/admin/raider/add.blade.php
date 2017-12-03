@@ -42,19 +42,16 @@
 <div class="wrapper">
 
 @include('admin.public.header')
-    <!-- Left side column. contains the logo and sidebar -->
+<!-- Left side column. contains the logo and sidebar -->
 @include('admin.public.aside')
 
-    <!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <form action="http://www.thmaoqiu.cn/saiyou/public/index.php/desc/add" method="post" enctype="multipart/form-data">
-            <input type="text" name="name" placeholder="传入比赛名称"><br />
-            <input type="text" name="desc" placeholder="传入比赛具体信息"><br />
-            <input type="text" name="short_desc" placeholder="传入简要比赛具体信息"><br />
-            <input type="date" name="registration_time" placeholder="传入报名时间"><br />
-            <input type="date" name="competition_time" placeholder="传入比赛时间"><br />
-            <input type="file" name="pic" placeholder="传入比赛缩略图"><br />
-            <input type="text" name="type" placeholder="传入比赛类别">
+        <form action="http://www.thmaoqiu.cn/saiyou/public/index.php/raider/add" method="post" enctype="multipart/form-data">
+            <input type="text" name="id" placeholder="传入攻略id"><br />
+            <input type="text" name="name" placeholder="传入攻略名字（题目）"><br />
+            <input type="text" name="desc" placeholder="传入攻略内容"><br />
+            <input type="file" name="pic" placeholder="传入攻略缩略图"><br />
             <input type="submit">
         </form>
 

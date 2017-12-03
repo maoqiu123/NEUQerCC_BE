@@ -1592,7 +1592,7 @@ order(string) | 传入比赛序号  | 1
 ```
 
 
-#### 查询队伍
+#### 搜索队伍
 
  > http://www.thmaoqiu.cn/saiyou/public/index.php/team/search
  

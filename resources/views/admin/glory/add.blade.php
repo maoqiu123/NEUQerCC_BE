@@ -47,14 +47,11 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <form action="http://www.thmaoqiu.cn/saiyou/public/index.php/desc/add" method="post" enctype="multipart/form-data">
-            <input type="text" name="name" placeholder="传入比赛名称"><br />
-            <input type="text" name="desc" placeholder="传入比赛具体信息"><br />
-            <input type="text" name="short_desc" placeholder="传入简要比赛具体信息"><br />
-            <input type="date" name="registration_time" placeholder="传入报名时间"><br />
-            <input type="date" name="competition_time" placeholder="传入比赛时间"><br />
-            <input type="file" name="pic" placeholder="传入比赛缩略图"><br />
-            <input type="text" name="type" placeholder="传入比赛类别">
+        <form action="http://www.thmaoqiu.cn/saiyou/public/index.php/user/glory_add" method="post" enctype="multipart/form-data">
+            <input type="text" name="phone" placeholder="传入用户手机号"><br />
+            <input type="text" name="glory_name" placeholder="传入荣誉墙赛事名称"><br />
+            <input type="text" name="glory_time" placeholder="传入传入荣誉墙获奖时间"><br />
+            <input type="file" name="glory_pic" placeholder="传入荣誉墙图片"><br />
             <input type="submit">
         </form>
 

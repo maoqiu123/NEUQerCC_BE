@@ -90,3 +90,33 @@ Route::get('/desc/edit',function (){
 Route::get('/desc/del',function (){
     return view('admin/desc/del');
 });
+Route::get('/glory/add',function (){
+    return view('admin/glory/add');
+});
+Route::get('/glory/edit',function (){
+    return view('admin/glory/edit');
+});
+Route::get('/glory/del',function (){
+    return view('admin/glory/del');
+});
+Route::get('/raider/add',function (){
+    return view('admin/raider/add');
+});
+Route::get('/raider/edit',function (){
+    return view('admin/raider/edit');
+});
+Route::get('/raider/del',function (){
+    return view('admin/raider/del');
+});
+Route::get('/year/add',function (){
+    return view('admin/year/add');
+});
+Route::get('/year/del',function (){
+    return view('admin/year/del');
+});
+Route::get('/field/add',function (){
+    return view('admin/field/add');
+});
+Route::get('/field/del',function (){
+    return view('admin/field/del');
+});

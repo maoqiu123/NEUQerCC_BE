@@ -26,7 +26,7 @@ class UserController extends Controller
     }
     public function edit(Request $request){
         $edit = new RegisterController();
-        return $edit->edit($request->phone,$request->name,$request->gender,$request->major,$request->grade,$request->studentid,$request->good_at,$request->file('pic'));
+        return $edit->edit($request->username,$request->phone,$request->name,$request->gender,$request->major,$request->grade,$request->studentid,$request->good_at,$request->file('pic'));
     }
     public function show(Request $request){
         $show = new RegisterController();

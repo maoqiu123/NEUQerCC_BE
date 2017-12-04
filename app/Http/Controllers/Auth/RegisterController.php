@@ -66,8 +66,9 @@ class RegisterController extends Controller
 
     }
 
-    public function edit($phone,$name,$gender,$major,$grade,$studentid,$good_at,$pic){
+    public function edit($username,$phone,$name,$gender,$major,$grade,$studentid,$good_at,$pic){
         if ($user = User::where('phone',$phone)->first()){
+            $user->username = $username;
             $user->name = $name;
             $user->gender = $gender;
             $user->major = $major;

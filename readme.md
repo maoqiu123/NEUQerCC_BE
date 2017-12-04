@@ -174,6 +174,7 @@ password(string) | 传入密码  | 12345678912
 参数(类型) | 说明 | 示例
 ----|------|----
 phone(string) | 传入手机号  | 12345678912
+username(string) | 传入用户名  | thth
 name(string) | 传入姓名  | thth
 gender(int) | 传入性别  | 男：0，女：1
 major(string) | 传入专业  | 通信工程

@@ -1650,7 +1650,7 @@ order(string) | 传入比赛序号  | 1
 
  > http://www.thmaoqiu.cn/saiyou/public/index.php/feedback
  
- 数据传输方式：GET
+ 数据传输方式：POST
  
  数据传输格式为：JSON
  
@@ -1749,7 +1749,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询年份
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/other/year_add
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/other/year_show
  
  数据传输方式：GET
  
@@ -1857,7 +1857,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询领域份
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/other/field_add
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/other/field_show
  
  数据传输方式：GET
  

@@ -57,7 +57,7 @@ Route::get('/teams/show','TeamController@teams_show');
 Route::get('/team/recommend','TeamController@recommend');
 Route::post('/team/search','TeamController@search');
 
-Route::post('/feedback','FeedbackController@feedback');
+Route::post('/feedback','FeedbackController@add');
 
 Route::post('/other/year_add','OtherController@year_add');
 Route::delete('/other/year_del','OtherController@year_del');

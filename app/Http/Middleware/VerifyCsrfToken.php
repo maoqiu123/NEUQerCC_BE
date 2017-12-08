@@ -37,6 +37,7 @@ class VerifyCsrfToken extends BaseVerifier
         '/team/del',
         '/team/search',
 
+        '/feedback',
         '/other/year_add',
         '/other/year_del',
         '/other/field_add',

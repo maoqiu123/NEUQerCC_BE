@@ -141,7 +141,9 @@ class Team extends Model
             $team_positions = explode(',',$team->team_position);
             for ($i = 0;$i < sizeof($team_members);$i++){
                 if ($user = User::where('phone',$team_members[$i])->first()){
-                    $result[$i]['name'] = $user->name;
+                    $name = explode(',',$user->name);
+                    $result[$i]['name'] = $name[0];
+                    $result[$i]['namesee'] = $name[1];
                     $result[$i]['good_at'] = $user->good_at;
                     if ($team_positions[$i] == 0){
                         $result[$i]['team_position'] = '队长';

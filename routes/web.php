@@ -26,6 +26,8 @@ Route::post('/user/glory_add','UserController@glory_add');
 Route::post('/user/glory_edit','UserController@glory_edit');
 Route::delete('/user/glory_del','UserController@glory_del');
 Route::get('/user/glory_show','UserController@glory_show');
+Route::post('/user/phonesee','UserController@phonesee');
+Route::post('/user/namesee','UserController@namesee');
 
 Route::post('/carousel/add','CarouselController@add');
 Route::delete('/carousel/del','CarouselController@del');

@@ -22,6 +22,7 @@ class RegisterController extends Controller
             $data = [
                 'password' => bcrypt($password),
                 'phone' => $phone,
+                'phonesee' => 1,
             ];
             if ($user->where('phone', $phone)->first()) {
                 return response()->json(['code' => 1, 'msg' => '手机号已存在']);
@@ -70,6 +71,7 @@ class RegisterController extends Controller
         if ($user = User::where('phone',$phone)->first()){
             $user->username = $username;
             $user->name = $name;
+            $user->namesee = 1;
             $user->gender = $gender;
             $user->major = $major;
             $user->grade = $grade;
@@ -91,12 +93,40 @@ class RegisterController extends Controller
         }
     }
 
+    public function phonesee($phone,$phonesee){
+        if ($user = User::where('phone',$phone)->first()){
+            $user->phonesee = $phonesee;
+            if ($user->save()){
+                return response()->json(['code'=>0,'msg'=>'改变电话是否可见成功']);
+            }else{
+                return response()->json(['code'=>1,'msg'=>'改变电话是否可见失败']);
+            }
+        }else{
+            return response()->json(['code'=>2,'msg'=>'该用户不存在']);
+        }
+    }
+
+    public function namesee($phone,$namesee){
+        if ($user = User::where('phone',$phone)->first()){
+            $user->namesee = $namesee;
+            if ($user->save()){
+                return response()->json(['code'=>0,'msg'=>'改变姓名是否可见成功']);
+            }else{
+                return response()->json(['code'=>1,'msg'=>'改变姓名是否可见失败']);
+            }
+        }else{
+            return response()->json(['code'=>2,'msg'=>'该用户不存在']);
+        }
+    }
+
     public function show($phone){
         if ($user = User::where('phone',$phone)->first()){
             $result['username'] = $user->username;
             $result['phone'] = $user->phone;
+            $result['phonesee'] = $user->phonesee;
             $result['pic'] = $user->pic;
             $result['name'] = $user->name;
+            $result['namesee'] = $user->namesee;
             $result['major'] = $user->major;
             $result['grade'] = $user->grade;
             $result['studentid'] = $user->studentid;

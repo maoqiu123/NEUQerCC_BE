@@ -28,6 +28,14 @@ class UserController extends Controller
         $edit = new RegisterController();
         return $edit->edit($request->username,$request->phone,$request->name,$request->gender,$request->major,$request->grade,$request->studentid,$request->good_at,$request->file('pic'));
     }
+    public function phonesee(Request $request){
+        $phonesee = new RegisterController();
+        return $phonesee->phonesee($request->phone,$request->phonesee);
+    }
+    public function namesee(Request $request){
+        $phonesee = new RegisterController();
+        return $phonesee->namesee($request->phone,$request->namesee);
+    }
     public function show(Request $request){
         $show = new RegisterController();
         return $show->show($request->phone);

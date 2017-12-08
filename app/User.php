@@ -15,11 +15,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'phone', 'password',
+        'username', 'phone', 'password','phonesee','namesee'
     ];
     protected $table = 'users';
     protected $hidden = [
-        'created_at','updated_at','password','team_id','remember_token','id',
+        'created_at','updated_at','password','remember_token','id',
     ];
 
     public function uservalidate($username){

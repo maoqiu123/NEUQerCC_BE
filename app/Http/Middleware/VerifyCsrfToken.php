@@ -20,6 +20,8 @@ class VerifyCsrfToken extends BaseVerifier
         '/user/glory_add',
         '/user/glory_edit',
         '/user/glory_del',
+        '/user/phonesee',
+        '/user/namesee',
         '/carousel/add',
         '/carousel/del',
         '/type/add',

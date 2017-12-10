@@ -138,6 +138,7 @@ class CompetitionDesc extends Model
         if ($page == '') $page = 1;
         if ($size == '') $size = 3;
         if ($competitiondesc = CompetitionDesc::orderBy('created_at')->skip($size * $page - $size)->take($size)->get()){
+            $result = null;
             for ($i = 0;$i < sizeof($competitiondesc);$i ++){
                 $result[$i]['id'] = $competitiondesc[$i]->id;
                 $result[$i]['name'] = $competitiondesc[$i]->name;

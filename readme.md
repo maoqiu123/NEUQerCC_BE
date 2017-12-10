@@ -299,8 +299,10 @@ phone(string) | 传入手机号  | 12345678912
     "data": {
         "username": "maoqiu",
         "phone": "15076067012",
+        "phonesee": 1,
         "pic": "http://www.thmaoqiu.cn/saiyou/storage/app/pics/5a0c57e2759f2.jpg",
         "name": "thth",
+        "namesee": 1, 
         "major": "通信工程",
         "grade": 2016,
         "studentid": 20166666,
@@ -1411,11 +1413,13 @@ order(string) | 传入比赛序号  | 1
     "data": [
         {
             "name": "1",
+            "namesee": 1,
             "good_at": null,
             "team_position": "队长"
         },
         {
             "name": "1",
+            "namesee": 1,
             "good_at": null,
             "team_position": "队员"
         }

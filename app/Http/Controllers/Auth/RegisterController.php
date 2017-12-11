@@ -144,16 +144,19 @@ class RegisterController extends Controller
             $team_ids = explode(',',$user->team_id);
             $i = 0;
             foreach ($team_ids as $team_id){
-                $team = Team::where('id',$team_id)->first();
-                $result[$i]['team_id'] = $team->id;
-                $result[$i]['team_name'] = $team->team_name;
-                $result[$i]['competition_desc'] = $team->competition_desc;
-                $result[$i]['team_member_num'] = sizeof(explode(',',$team->team_member));
-                $i++;
+                if ($team = Team::where('id',$team_id)->first()){
+                    $result[$i]['team_id'] = $team->id;
+                    $result[$i]['team_name'] = $team->team_name;
+                    $result[$i]['competition_desc'] = $team->competition_desc;
+                    $result[$i]['team_member_num'] = sizeof(explode(',',$team->team_member));
+                    $i++;
+                }else{
+                    return response()->json(['code'=>2,'msg'=>'查询中断，队伍'.$team_id.'不存在']);
+                }
             }
             return response()->json(['code'=>0,'msg'=>'查询队伍列表成功','data'=>$result]);
         }else{
-
+            return response()->json(['code'=>1,'msg'=>'该户不存在']);
         }
     }
 

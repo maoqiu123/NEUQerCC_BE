@@ -485,7 +485,7 @@ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2
   
 #### 删除荣誉墙
  
- > http://www.thmaoqiu.cn/saiyou/public/index.php/user/glory_show
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/user/glory_del
  
  数据传输方式：GET
  
@@ -1553,17 +1553,31 @@ order(string) | 传入比赛序号  | 1
  
  成功返回 
 ```json
- {
-     "code": 0,
-     "msg": "查询队伍成功",
-     "data": {
-             "id": 1,
-             "team_name": null,
-             "competition_desc": "1",
-             "declaration": null,
-             "good_at": null
-     }
- }
+{
+    "code": 0,
+    "msg": "查询队伍成功",
+    "data": {
+        "id": 6192962,
+        "team_name": "测试",
+        "competition_desc": null,
+        "declaration": "测试",
+        "good_at": "测试",
+        "team_member": [
+            {
+                "name": "1",
+                "namesee": 0,
+                "good_at": null,
+                "team_position": "队长"
+            },
+            {
+                "name": null,
+                "namesee": 1,
+                "good_at": null,
+                "team_position": "副队长"
+            }
+        ]
+    }
+}
 ```
  
  失败返回

@@ -72,23 +72,24 @@ class Team extends Model
             $team_position = 2;
         }
         if ($user = User::where('phone',$phone)->first()){
+            for ($i = 0;$i < sizeof($team_members = explode(',',$team->team_member));$i++){
+                if ($team_members[$i] == $phone){
+                    return response()->json(['code'=>5,'msg'=>'该用户已存在于小队中']);
+                }
+            }
             if ($user->team_id == '' || $user->team_id == null){
                 $user->team_id = $team_id;
             }else{
                 $user->team_id = $user->team_id . ',' . $team_id;
             }
-            if ($team->team_member == '' || $user->team_member == null){
+            if ($team->team_member == '' || $team->team_member == null){
                 $team->team_member = $user->phone;
                 $team->team_position = $team_position;
             }else{
                 $team->team_member = $team->team_member . ',' . $user->phone;
                 $team->team_position = $team->team_position . ',' . $team_position;
             }
-            for ($i = 0;$i < sizeof(explode(',',$team_members = $team->team_member));$i++){
-                if ($team_members[$i] == $user->phone){
-                    return response()->json(['code'=>5,'msg'=>'该用户已存在于小队中']);
-                }
-            }
+
             if ($user->save() && $team->save()){
                 return response()->json(['code'=>0,'msg'=>'添加成员成功']);
             }else{
@@ -142,9 +143,8 @@ class Team extends Model
             $team_positions = explode(',',$team->team_position);
             for ($i = 0;$i < sizeof($team_members);$i++){
                 if ($user = User::where('phone',$team_members[$i])->first()){
-                    $name = explode(',',$user->name);
-                    $result[$i]['name'] = $name[0];
-                    $result[$i]['namesee'] = $name[1];
+                    $result[$i]['name'] = $user->name;
+                    $result[$i]['namesee'] = $user->namesee;
                     $result[$i]['good_at'] = $user->good_at;
                     if ($team_positions[$i] == 0){
                         $result[$i]['team_position'] = '队长';
@@ -227,8 +227,32 @@ class Team extends Model
             return response()->json(['code'=>2,'msg'=>'队伍id不能为空']);
         }
         if ($team = Team::where('id',$team_id)->first()){
+            $team_members = explode(',',$team->team_member);
+            $team_positions = explode(',',$team->team_position);
 
-            return response()->json(['code'=>0,'msg'=>'查询队伍成功','data'=>$team]);
+                $result['id'] = $team->id;
+                $result['team_name'] = $team->team_name;
+                $result['competition_desc'] = $team->competition_desc;
+                $result['declaration'] = $team->declaration;
+                $result['good_at'] = $team->good_at;
+                for ($i = 0;$i < sizeof($team_members);$i++) {
+                    if ($user = User::where('phone', $team_members[$i])->first()) {
+                        $result['team_member'][$i]['name'] = $user->name;
+                        $result['team_member'][$i]['namesee'] = $user->namesee;
+                        $result['team_member'][$i]['good_at'] = $user->good_at;
+                        if ($team_positions[$i] == 0) {
+                            $result['team_member'][$i]['team_position'] = '队长';
+                        } elseif ($team_positions[$i] == 1) {
+                            $result['team_member'][$i]['team_position'] = '副队长';
+                        } else {
+                            $result['team_member'][$i]['team_position'] = '队员';
+                        }
+                    } else {
+                        return response()->json(['code' => 1, 'msg' => "用户$team_members[$i]不存在"]);
+                    }
+                }
+
+            return response()->json(['code'=>0,'msg'=>'查询队伍成功','data'=>$result]);
         }else{
             return response()->json(['code'=>3,'msg'=>'找不到该队伍id']);
         }
@@ -239,7 +263,14 @@ class Team extends Model
         if ($page == '') $page = 1;
         if ($size == '') $size = 8;
         if ($team = Team::orderBy('created_at')->skip($size * $page - $size)->take($size)->get()){
-            return response()->json(['code'=>0,'msg'=>'查询队伍成功','data'=>['totalCount' => sizeof($team),'page'=>$page,'item' => $team]]);
+            for ($i = 0;$i < sizeof($team);$i++){
+                $result[$i]['id'] = $team[$i]->id;
+                $result[$i]['team_name'] = $team[$i]->team_name;
+                $result[$i]['competition_desc'] = $team[$i]->competition_desc;
+                $result[$i]['declaration'] = $team[$i]->declaration;
+                $result[$i]['good_at'] = $team[$i]->good_at;
+            }
+            return response()->json(['code'=>0,'msg'=>'查询队伍成功','data'=>['totalCount' => sizeof($team),'page'=>$page,'item' => $result]]);
         }else{
             return response()->json(['code'=>1,'msg'=>'查询队伍失败']);
         }

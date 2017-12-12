@@ -174,8 +174,10 @@ password(string) | 传入密码  | 12345678912
 参数(类型) | 说明 | 示例
 ----|------|----
 phone(string) | 传入手机号  | 12345678912
+phonesee(int) | 传入手机号是否可见  | 0为否，1为是
 username(string) | 传入用户名  | thth
 name(string) | 传入姓名  | thth
+namesee(int) | 传入姓名是否可见  | 0为否，1为是
 gender(int) | 传入性别  | 男：0，女：1
 major(string) | 传入专业  | 通信工程
 grade(int) | 传入年级  | 2016
@@ -205,77 +207,6 @@ pic(file) | 传入用户头像  | C:\Users\hasee\Pictures\Camera Roll\1.jpg
 }
  ```
 
- #### 修改电话是否可见
- 
-> http://www.thmaoqiu.cn/saiyou/public/index.php/user/phonesee
-
-数据传输方式：POST
-
-数据传输格式为：JSON
-
-
-参数(类型) | 说明 | 示例
-----|------|----
-phone(string) | 传入手机号  | 12345678912
-phonesee(string) | 传入手机号是否可见  | 0为不可 1为可以
-
-成功返回 
- ```json
-{
-    "code": 0,
-    "msg": "改变电话是否可见成功"
-}
- ```
-
-失败返回
- ```json
-{
-    "code": 1,
-    "msg": "改变电话是否可见失败"
-}
- ```
- ```json
-{
-    "code": 2,
-    "msg": "该用户不存在"
-}
- ```
-
- #### 修改姓名是否可见
- 
-> http://www.thmaoqiu.cn/saiyou/public/index.php/user/namesee
-
-数据传输方式：POST
-
-数据传输格式为：JSON
-
-
-参数(类型) | 说明 | 示例
-----|------|----
-phone(string) | 传入手机号  | 12345678912
-namesee(string) | 传入手机号是否可见  | 0为不可 1为可以
-
-成功返回 
- ```json
-{
-    "code": 0,
-    "msg": "改变姓名是否可见成功"
-}
- ```
-
-失败返回
- ```json
-{
-    "code": 1,
-    "msg": "改变姓名是否可见失败"
-}
- ```
- ```json
-{
-    "code": 2,
-    "msg": "该用户不存在"
-}
- ```
 
 
  #### 查询个人信息

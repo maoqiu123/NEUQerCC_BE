@@ -67,11 +67,18 @@ class RegisterController extends Controller
 
     }
 
-    public function edit($username,$phone,$name,$gender,$major,$grade,$studentid,$good_at,$pic){
+    public function edit($username,$phone,$name,$gender,$major,$grade,$studentid,$good_at,$pic,$phonesee,$namesee){
         if ($user = User::where('phone',$phone)->first()){
+            if (!isset($phonesee)){
+                $phonesee = 1;
+            }
+            if (!isset($namesee)){
+                $namesee = 1;
+            }
+            $user->phonesee = $phonesee;
             $user->username = $username;
             $user->name = $name;
-            $user->namesee = 1;
+            $user->namesee = $namesee;
             $user->gender = $gender;
             $user->major = $major;
             $user->grade = $grade;
@@ -81,41 +88,13 @@ class RegisterController extends Controller
                 $path2 = $pic->storeAs('pics', uniqid().'.jpg');
                 $user->pic = 'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path2;
             }
-
             if ($user->save()){
                 return response()->json(['code'=>0,'msg'=>'修改用户信息成功']);
             }else{
                 return response()->json(['code'=>1,'msg'=>'修改用户信息失败']);
             }
-
         }else{
             return response()->json(['code'=>2,'msg'=>'用户不存在']);
-        }
-    }
-
-    public function phonesee($phone,$phonesee){
-        if ($user = User::where('phone',$phone)->first()){
-            $user->phonesee = $phonesee;
-            if ($user->save()){
-                return response()->json(['code'=>0,'msg'=>'改变电话是否可见成功']);
-            }else{
-                return response()->json(['code'=>1,'msg'=>'改变电话是否可见失败']);
-            }
-        }else{
-            return response()->json(['code'=>2,'msg'=>'该用户不存在']);
-        }
-    }
-
-    public function namesee($phone,$namesee){
-        if ($user = User::where('phone',$phone)->first()){
-            $user->namesee = $namesee;
-            if ($user->save()){
-                return response()->json(['code'=>0,'msg'=>'改变姓名是否可见成功']);
-            }else{
-                return response()->json(['code'=>1,'msg'=>'改变姓名是否可见失败']);
-            }
-        }else{
-            return response()->json(['code'=>2,'msg'=>'该用户不存在']);
         }
     }
 

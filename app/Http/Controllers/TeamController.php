@@ -36,7 +36,7 @@ class TeamController extends Controller
     }
     public function del(Request $request){
         $team = new Team();
-        return $team->del(intval($request->team_id),$request->phone);
+        return $team->del(intval($request->team_id));
     }
     public function show(Request $request){
         $team = new Team();

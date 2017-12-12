@@ -50,7 +50,7 @@ class Team extends Model
 //            'project_name' => $project_name,
             'declaration' => $declaration,
             'good_at' => $good_at,
-            'team_member' => $user->username,
+            'team_member' => $user->phone,
             'team_position' => '0'
             ];
         if (Team::create($data)){
@@ -188,30 +188,36 @@ class Team extends Model
     }
 
 
-    public function del($team_id,$phone){
+    public function del($team_id){
         if ($team_id == ''){
             return response()->json(['code'=>2,'msg'=>'队伍id不能为空']);
         }
-        if ($team = Team::where('id',$team_id)->first()){
-            if ($team->delete()){
-                if ($user = User::where('phone',$phone)->first()){
-                    $team_ids = explode(',',$user->team_id);
-                    for ($i = 0; $i < sizeof($team_ids);$i ++){
-                        if ($team_ids[$i] == $team_id){
+
+        if ($team = Team::where('id', $team_id)->first()) {
+            $members = explode(',', $team->team_member);
+            $errors = 0;
+            foreach ($members as $phone) {
+                if ($user = User::where('phone', $phone)->first()) {
+                    $team_ids = explode(',', $user->team_id);
+                    for ($i = 0; $i < sizeof($team_ids); $i++) {
+                        if ($team_ids[$i] == $team_id) {
                             unset($team_ids[$i]);
                             break;
                         }
                     }
-                    $user->team_id = implode(',',$team_ids);
-                }else{
-                    return response()->json(['code'=>4,'msg'=>'此队长信息不存在']);
+                    $user->team_id = implode(',', $team_ids);
+                    $user->save();
+                } else {
+                    $errors = $errors + 1;
                 }
-                return response()->json(['code'=>0,'msg'=>'删除队伍成功']);
-            }else{
-                return response()->json(['code'=>1,'msg'=>'删除队伍失败']);
             }
-        }else{
-            return response()->json(['code'=>3,'msg'=>'找不到该队伍id']);
+            if ($team->delete()){
+                return response()->json(['code' => 0, 'msg' => '删除队伍成功，有'.$errors.'个用户异常']);
+            }else{
+                return response()->json(['code' => 1, 'msg' => '删除队伍失败']);
+            }
+        } else {
+            return response()->json(['code' => 3, 'msg' => '找不到该队伍id']);
         }
     }
 

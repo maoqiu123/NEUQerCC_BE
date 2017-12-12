@@ -190,6 +190,11 @@ class RegisterController extends Controller
             $glory_names = explode(',', $user->glory_name);
             $glory_times = explode(',', $user->glory_time);
             $glory_pics = explode(',', $user->glory_pic);
+            if ($order <= sizeof($glory_names) && $order >= 1){
+
+            }else{
+                return response()->json(['code'=>2,'msg'=>'请检查输入的荣誉墙顺序是否正确']);
+            }
 
             $glory_names[$order - 1] = $glory_name;
             $glory_times[$order - 1] = $glory_time;
@@ -214,7 +219,11 @@ class RegisterController extends Controller
             $user = User::where('phone', $phone)->first();
             $glory_names = explode(',', $user->glory_name);
             $glory_times = explode(',', $user->glory_time);
+            if ($order <= sizeof($glory_names) && $order >= 1){
 
+            }else{
+                return response()->json(['code'=>2,'msg'=>'请检查输入的荣誉墙顺序是否正确']);
+            }
             $glory_names[$order - 1] = $glory_name;
             $glory_times[$order - 1] = $glory_time;
 
@@ -223,6 +232,7 @@ class RegisterController extends Controller
 
             $user->glory_name = $glory_names;
             $user->glory_time = $glory_times;
+
 
             if ($user->save()){
                 return response()->json(['code'=>0,'msg'=>'修改荣誉墙成功']);

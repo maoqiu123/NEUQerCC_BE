@@ -440,6 +440,12 @@ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2
      "msg": "修改荣誉墙失败"
  }
   ```
+  ```json
+ {
+     "code": 2,
+     "msg": "请检查输入的荣誉墙顺序是否正确"
+ }
+  ```
 
  #### 删除荣誉墙
  

@@ -39,6 +39,7 @@ class Team extends Model
             }else{
                 $user->team_id = $user->team_id . ',' . $team_id;
             }
+            $user->save();
         }else{
             return response()->json(['code'=>2,'msg'=>'此队长信息不存在']);
         }

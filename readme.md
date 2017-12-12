@@ -1586,7 +1586,7 @@ order(string) | 传入比赛序号  | 1
  
  参数(类型) | 说明 | 示例
  ----|------|----
- competition_type(string) | 传入比赛类别  | bilibili比赛
+ competition_desc(string) | 传入比赛  | bilibili比赛
  page(int) | 传入第几页  | 2
  size(int) | 传入每页显示数量  | 8
  

@@ -16,11 +16,11 @@ class TeamController extends Controller
 {
     public function add(Request $request){
         $team = new Team();
-        return $team->add($request->phone,$request->team_name,$request->competition_type,$request->project_name,$request->declaration,$request->good_at);
+        return $team->add($request->phone,$request->team_name,$request->competition_desc,$request->project_name,$request->declaration,$request->good_at);
     }
     public function edit(Request $request){
         $team = new Team();
-        return $team->edit(intval($request->team_id),$request->team_name,$request->competition_type,$request->project_name,$request->declaration,$request->good_at);
+        return $team->edit(intval($request->team_id),$request->team_name,$request->competition_desc,$request->project_name,$request->declaration,$request->good_at);
     }
     public function member_add(Request $request){
         $team = new Team();
@@ -48,7 +48,7 @@ class TeamController extends Controller
     }
     public function recommend(Request $request){
         $team = new Team();
-        return $team->recommend($request->competition_type,intval($request->page),intval($request->size));
+        return $team->recommend($request->competition_desc,intval($request->page),intval($request->size));
     }
     public function search(Request $request){
         $team = new Team();

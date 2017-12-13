@@ -270,4 +270,21 @@ class RegisterController extends Controller
     }
 
 
+    public function like($phone,$competition_desc){
+        if ($user = User::where('phone',$phone)->first()){
+            if (!isset($competition_desc)){
+                return response()->json(['code'=>3,'msg'=>'爱好比赛不能为空']);
+            }
+            $user -> like = $competition_desc;
+            if ($user->save()){
+                return response()->json(['code'=>0,'msg'=>'记录用户爱好成功']);
+            }else{
+                return response()->json(['code'=>1,'msg'=>'记录用户爱好失败']);
+            }
+        }else{
+            return response()->json(['code'=>2,'msg'=>'检查用户手机是否正确']);
+        }
+    }
+
+
 }

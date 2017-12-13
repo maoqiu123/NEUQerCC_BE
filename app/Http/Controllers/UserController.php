@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\RegisterController;
 
@@ -60,6 +61,10 @@ class UserController extends Controller
     public function forgot(Request $request){
         $forgot = new ForgotPasswordController();
         return $forgot->forgot($request->phone, $request->password);
+    }
+    public function like(Request $request){
+        $like = new RegisterController();
+        return $like->like($request->phone,$request->competition_desc);
     }
 
 

@@ -277,14 +277,13 @@ class Team extends Model
     }
 
 
-    public function recommend($competition_desc,$page,$size){
+    public function recommend($phone,$page,$size){
         if ($page == '') $page = 1;
         if ($size == '') $size = 8;
+        $competition_desc = User::where('phone',$phone)->first()->competition_desc;
         if ($competition_desc == ''){
             if ($team = Team::orderBy('created_at')->skip($size * $page - $size)->take($size)->get()){
                 return response()->json(['code'=>0,'msg'=>'查询队伍成功','data'=>['totalCount' => sizeof($team),'page'=>$page,'item' => $team]]);
-            }else{
-                return response()->json(['code'=>1,'msg'=>'查询队伍失败']);
             }
         }
         if ($team = Team::where('competition_desc', $competition_desc)->orderBy('created_at')->skip($size * $page - $size)->take($size)->get()) {

@@ -463,7 +463,48 @@ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2
  }
   ```
 
+#### 用户喜好
 
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/user/like
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ phone(string) | 传入手机  | 123456789
+ competition_desc(string) | 传入爱好比赛  | 毛
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "记录用户爱好成功"
+}
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "记录用户爱好失败"
+ }
+```
+```json
+ {
+     "code": 2,
+     "msg": "检查用户手机是否正确"
+ }
+```
+```json
+ {
+     "code": 3,
+     "msg": "爱好比赛不能为空"
+ }
+```
  
  ### 比赛轮播图
  
@@ -1586,7 +1627,7 @@ order(string) | 传入比赛序号  | 1
  
  参数(类型) | 说明 | 示例
  ----|------|----
- competition_desc(string) | 传入比赛  | bilibili比赛
+ phone(string) | 传入用户手机  | 123456789
  page(int) | 传入第几页  | 2
  size(int) | 传入每页显示数量  | 8
  

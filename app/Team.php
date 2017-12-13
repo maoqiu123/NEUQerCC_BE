@@ -296,9 +296,10 @@ class Team extends Model
 
     public function search($content){
         $team = Team::get();
+        $j = 0;
         for ($i = 0;$i < sizeof($team);$i++){
             if (str_contains($team[$i]['team_name'],$content)){
-                $result[$i] = $team[$i];
+                $result[$j++] = $team[$i];
             }
         }
         if(empty($result)){

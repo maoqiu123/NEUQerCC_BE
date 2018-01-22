@@ -69,6 +69,10 @@ Route::post('/other/field_add','OtherController@field_add');
 Route::delete('/other/field_del','OtherController@field_del');
 Route::get('/other/field_show','OtherController@field_show');
 
+Route::post('/friend/add','ChatController@addFriend');
+Route::delete('/friend/del','ChatController@deleteFriend');
+Route::get('/friend/show','ChatController@showFriends');
+
 Route::get('/index',function (){
     return view('admin/index');
 });

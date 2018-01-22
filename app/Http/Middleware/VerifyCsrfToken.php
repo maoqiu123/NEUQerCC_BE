@@ -43,5 +43,9 @@ class VerifyCsrfToken extends BaseVerifier
         '/other/year_del',
         '/other/field_add',
         '/other/field_del',
+
+        '/friend/add',
+        '/friend/del',
+        '/friend/show',
     ];
 }

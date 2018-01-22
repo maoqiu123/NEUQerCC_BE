@@ -185,7 +185,7 @@ studentid(int) | 传入学号  | 20166666
 good_at(string) | 传入擅长领域  | 后端开发
 pic(file) | 传入用户头像  | C:\Users\hasee\Pictures\Camera Roll\1.jpg
 
-成功返回 
+成功返回
  ```json
 {
     "code": 0,
@@ -1961,5 +1961,156 @@ order(string) | 传入比赛序号  | 1
  {
      "code": 1,
      "msg": "查找领域失败"
+ }
+```
+
+### 好友系统
+
+#### 添加好友
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/friend/add
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ phone | 用户手机 | 15076067012
+ friend_phone | 要添加的好友的手机 |15076067012
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "好友添加成功"
+}
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "电话不存在"
+ }
+```
+```json
+ {
+     "code": 2,
+     "msg": "好友电话不存在"
+ }
+```
+```json
+ {
+     "code": 3,
+     "msg": "好友添加失败，请检查电话是否正确"
+ }
+```
+```json
+ {
+     "code": 4,
+     "msg": "该好友已存在"
+ }
+```
+```json
+ {
+     "code": 5,
+     "msg": "该用户不存在"
+ }
+```
+
+#### 删除好友
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/friend/del
+ 
+ 数据传输方式：DELETE
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ phone | 用户手机 | 15076067012
+ friend_phone | 要删除的好友的手机 |15076067012
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "好友删除成功"
+}
+```
+ 
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "电话不存在"
+ }
+```
+```json
+ {
+     "code": 2,
+     "msg": "好友电话不存在"
+ }
+```
+```json
+ {
+     "code": 3,
+     "msg": "好友删除失败，请检查电话是否正确"
+ }
+```
+```json
+ {
+     "code": 4,
+     "msg": "该好友不存在"
+ }
+```
+
+#### 查询好友
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/friend/show
+ 
+ 数据传输方式：GET
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ phone | 用户手机 | 15076067012
+ 
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "好友查询成功",
+    "data": [
+        "5658274",
+        "15603301711"
+    ]
+}
+```
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "电话不存在"
+ }
+```
+```json
+ {
+     "code": 3,
+     "msg": "好友查询失败，请检查电话是否正确"
+ }
+```
+```json
+ {
+     "code": 5,
+     "msg": "该用户不存在"
  }
 ```

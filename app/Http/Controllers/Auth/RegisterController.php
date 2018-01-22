@@ -8,16 +8,23 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use SmsManager;
 use \Yunpian\Sdk\YunpianClient;
+use App\Easemob;
 
 class RegisterController extends Controller
 {
 
     use RegistersUsers;
 
-
     public function register($phone, $password)
     {
+        $options = [
+            'client_id' => 'YXA6v_G1cP6kEee68LNk5ttwmQ',
+            'client_secret' => 'YXA6Fh6SNyZBkz2KnJ0Yz9VU0SCmxJM',
+            'org_name' => '1134180121178783',
+            'app_name' => 'saiyou',
+        ];
         $user = new User();
+        $chat = new Easemob($options);
         if ($phone != '') {
             $data = [
                 'password' => bcrypt($password),
@@ -27,6 +34,7 @@ class RegisterController extends Controller
             if ($user->where('phone', $phone)->first()) {
                 return response()->json(['code' => 1, 'msg' => '手机号已存在']);
             } else if ($user->create($data)) {
+                $chat->createUser($phone,$data['password'],'user'.uniqid());
                 return response()->json(['code' => 0, 'msg' => '注册成功']);
             } else {
                 return response()->json(['code' => -1, 'msg' => '注册失败']);
@@ -89,6 +97,14 @@ class RegisterController extends Controller
                 $user->pic = 'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path2;
             }
             if ($user->save()){
+                $options = [
+                    'client_id' => 'YXA6v_G1cP6kEee68LNk5ttwmQ',
+                    'client_secret' => 'YXA6Fh6SNyZBkz2KnJ0Yz9VU0SCmxJM',
+                    'org_name' => '1134180121178783',
+                    'app_name' => 'saiyou',
+                ];
+                $chat = new Easemob(OPTION);
+                $chat->editNickname($phone,$username);
                 return response()->json(['code'=>0,'msg'=>'修改用户信息成功']);
             }else{
                 return response()->json(['code'=>1,'msg'=>'修改用户信息失败']);

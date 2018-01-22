@@ -25,5 +25,13 @@ class ChatController extends Controller
         $chat = new Chat();
         return $chat->showFriends($request->phone);
     }
+    public function getChatRecord(Request $request){
+        $chat = new Chat();
+        return $chat->getChatRecord($request->phone);
+    }
+    public function search(Request $request){
+        $chat = new Chat();
+        return $chat->search($request->content);
+    }
 
 }

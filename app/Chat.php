@@ -116,4 +116,40 @@ class Chat extends Model
             return response()->json(['code' => 1, 'msg' => '电话不存在']);
         }
     }
+    public function search($content){
+        $options = [
+            'client_id' => 'YXA6v_G1cP6kEee68LNk5ttwmQ',
+            'client_secret' => 'YXA6Fh6SNyZBkz2KnJ0Yz9VU0SCmxJM',
+            'org_name' => '1134180121178783',
+            'app_name' => 'saiyou',
+        ];
+        $chat = new Easemob($options);
+        $users = $chat->getUsers();
+        $j = 0;
+        for ($i = 0;$i < sizeof($users['entities']);$i++){
+            if (strpos($users['entities'][$i]['username'],$content) === false){
+
+            } else {
+                $data[$j] = $users['entities'][$i]['username'];
+                $j++;
+            }
+        }
+        if (isset($data)){
+            return response()->json(['code'=>0,'msg'=>'搜索用户成功','data'=>$data]);
+        }else{
+            return response()->json(['code'=>1,'msg'=>'无匹配用户']);
+        }
+
+    }
+    public function getChatRecord($ql){
+        $options = [
+            'client_id' => 'YXA6v_G1cP6kEee68LNk5ttwmQ',
+            'client_secret' => 'YXA6Fh6SNyZBkz2KnJ0Yz9VU0SCmxJM',
+            'org_name' => '1134180121178783',
+            'app_name' => 'saiyou',
+        ];
+        $chat = new Easemob($options);
+        $result = $chat->getChatRecord($ql);
+        return response()->json(['code'=>0,'msg'=>'查询消息记录成功','data'=>$result]);
+    }
 }

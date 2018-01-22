@@ -72,6 +72,9 @@ Route::get('/other/field_show','OtherController@field_show');
 Route::post('/friend/add','ChatController@addFriend');
 Route::delete('/friend/del','ChatController@deleteFriend');
 Route::get('/friend/show','ChatController@showFriends');
+Route::get('/chat/search','ChatController@search');
+
+Route::get('/getChatRecord','ChatController@getChatRecord');
 
 Route::get('/index',function (){
     return view('admin/index');

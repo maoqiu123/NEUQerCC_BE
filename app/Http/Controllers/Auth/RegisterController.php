@@ -18,10 +18,10 @@ class RegisterController extends Controller
     public function register($phone, $password)
     {
         $options = [
-            'client_id' => 'YXA6v_G1cP6kEee68LNk5ttwmQ',
-            'client_secret' => 'YXA6Fh6SNyZBkz2KnJ0Yz9VU0SCmxJM',
-            'org_name' => '1134180121178783',
-            'app_name' => 'saiyou',
+            'client_id' => 'YXA6VdyDgPesEeej4u9_Bmthuw',
+            'client_secret' => 'YXA6nUFxy0XqHLiTu5X7FXgIH3CnAEE',
+            'org_name' => '1129180112178143',
+            'app_name' => 'neuqercc',
         ];
         $user = new User();
         $chat = new Easemob($options);

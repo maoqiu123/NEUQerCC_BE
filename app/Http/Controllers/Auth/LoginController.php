@@ -36,7 +36,7 @@ class LoginController extends Controller
         if ($token_time - time() > 0){
             $user->token_time = time() + 2592000;
             $user->save();
-            return response()->json(['code'=>0,'msg'=>'登陆成功']);
+            return response()->json(['code'=>0,'msg'=>'登陆成功','data'=>['phone'=>$user -> phone]]);
         }else{
             return response()->json(['code'=>4,'msg'=>'登录信息已失效，请重新登录']);
         }

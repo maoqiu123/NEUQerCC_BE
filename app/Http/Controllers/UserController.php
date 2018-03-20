@@ -57,6 +57,14 @@ class UserController extends Controller
         $login = new LoginController();
         return $login->login($request->phone,$request->password);
     }
+    public function check(Request $request){
+        $login = new LoginController();
+        return $login->check($request->token);
+    }
+    public function huanlogin(Request $request){
+        $login = new LoginController();
+        return $login->huanlogin($request->phone,$request->password);
+    }
 
     public function forgot(Request $request){
         $forgot = new ForgotPasswordController();

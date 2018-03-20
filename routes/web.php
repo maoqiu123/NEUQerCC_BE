@@ -15,9 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::post('/register','UserController@register');
+Route::post('/check','UserController@check');
 Route::post('/login','UserController@login');
 Route::post('/sms','UserController@sms');
 Route::post('/forgot','UserController@forgot');
+Route::post('/huanlogin','UserController@huanlogin');
 
 Route::post('/user/edit','UserController@edit');
 Route::get('/user/show','UserController@show');

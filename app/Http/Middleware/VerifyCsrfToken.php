@@ -14,6 +14,8 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         '/register',
         '/login',
+        '/check',
+        '/huanlogin',
         '/sms',
         '/forgot',
         '/user/edit',

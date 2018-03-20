@@ -82,7 +82,35 @@ password(string) | 传入密码  | 12345678912
 }
  ```
  
+ #### 登录检验
  
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/check
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ token(string) | 传入token  | 
+ 
+ 成功返回 
+  ```json
+ {
+     "code": 0,
+     "msg": "登录成功"
+ }
+  ```
+ 
+ 失败返回
+  ```json
+ {
+     "code": 4,
+     "msg": "登录信息已失效，请重新登录"
+ }
+  ```
+
  
 #### 登录
 

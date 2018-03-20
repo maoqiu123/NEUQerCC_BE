@@ -31,15 +31,20 @@ class LoginController extends Controller
         }
     }
     public function check($token){
-        $user = User::where('token',$token)->first();
-        $token_time = $user->token_time;
-        if ($token_time - time() > 0){
-            $user->token_time = time() + 2592000;
-            $user->save();
-            return response()->json(['code'=>0,'msg'=>'登陆成功','data'=>['phone'=>$user -> phone]]);
+        if ($user = User::where('token',$token)->first()){
+            $token_time = $user->token_time;
+            if ($token_time - time() > 0){
+                $user->token_time = time() + 2592000;
+                $user->save();
+                return response()->json(['code'=>0,'msg'=>'登陆成功','data'=>['phone'=>$user -> phone]]);
+            }else{
+                return response()->json(['code'=>4,'msg'=>'登录信息已失效，请重新登录']);
+            }
         }else{
             return response()->json(['code'=>4,'msg'=>'登录信息已失效，请重新登录']);
         }
+
+
     }
 
 

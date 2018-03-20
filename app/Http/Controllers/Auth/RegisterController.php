@@ -26,15 +26,17 @@ class RegisterController extends Controller
         $user = new User();
         $chat = new Easemob($options);
         if ($phone != '') {
+            $randomUsername = 'user'.uniqid();
             $data = [
                 'password' => bcrypt($password),
                 'phone' => $phone,
                 'phonesee' => 1,
+                'username' => $randomUsername,
             ];
             if ($user->where('phone', $phone)->first()) {
                 return response()->json(['code' => 1, 'msg' => '手机号已存在']);
             } else if ($user->create($data)) {
-                $chat->createUser($phone,$data['password'],'user'.uniqid());
+                $chat->createUser($phone,$data['password'],$randomUsername);
                 return response()->json(['code' => 0, 'msg' => '注册成功']);
             } else {
                 return response()->json(['code' => -1, 'msg' => '注册失败']);

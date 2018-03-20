@@ -16,11 +16,14 @@ class Chat extends Model
     public function addFriend($phone,$friend_phone){
         if (isset($phone)){
             if (isset($friend_phone)){
+                if ($phone == $friend_phone){
+                    return response()->json(['code'=>6,'msg'=>'不能添加自己为好友']);
+                }
                 $options = [
-                    'client_id' => 'YXA6v_G1cP6kEee68LNk5ttwmQ',
-                    'client_secret' => 'YXA6Fh6SNyZBkz2KnJ0Yz9VU0SCmxJM',
-                    'org_name' => '1134180121178783',
-                    'app_name' => 'saiyou',
+                    'client_id' => 'YXA6VdyDgPesEeej4u9_Bmthuw',
+                    'client_secret' => 'YXA6nUFxy0XqHLiTu5X7FXgIH3CnAEE',
+                    'org_name' => '1129180112178143',
+                    'app_name' => 'neuqercc',
                 ];
                 $chat = new Easemob($options);
                 $data = $chat->showFriends($phone);
@@ -58,10 +61,10 @@ class Chat extends Model
         if (isset($phone)){
             if (isset($friend_phone)){
                 $options = [
-                    'client_id' => 'YXA6v_G1cP6kEee68LNk5ttwmQ',
-                    'client_secret' => 'YXA6Fh6SNyZBkz2KnJ0Yz9VU0SCmxJM',
-                    'org_name' => '1134180121178783',
-                    'app_name' => 'saiyou',
+                    'client_id' => 'YXA6VdyDgPesEeej4u9_Bmthuw',
+                    'client_secret' => 'YXA6nUFxy0XqHLiTu5X7FXgIH3CnAEE',
+                    'org_name' => '1129180112178143',
+                    'app_name' => 'neuqercc',
                 ];
                 $chat = new Easemob($options);
                 $data = $chat->showFriends($phone);
@@ -89,10 +92,10 @@ class Chat extends Model
     {
         if (isset($phone)) {
             $options = [
-                'client_id' => 'YXA6v_G1cP6kEee68LNk5ttwmQ',
-                'client_secret' => 'YXA6Fh6SNyZBkz2KnJ0Yz9VU0SCmxJM',
-                'org_name' => '1134180121178783',
-                'app_name' => 'saiyou',
+                'client_id' => 'YXA6VdyDgPesEeej4u9_Bmthuw',
+                'client_secret' => 'YXA6nUFxy0XqHLiTu5X7FXgIH3CnAEE',
+                'org_name' => '1129180112178143',
+                'app_name' => 'neuqercc',
             ];
             $chat = new Easemob($options);
             $users = $chat->getUsers();
@@ -105,7 +108,14 @@ class Chat extends Model
             }
             if ($boole == true){
                 if ($data = $chat->showFriends($phone)) {
-                    return response()->json(['code' => 0, 'msg' => '好友查询成功','data' => $data['data']]);
+                    for ($j=0;$j<sizeof($data['data']);$j++){
+                        $user = User::where('phone',$data['data'][$j])->first();
+                        $result[$j]['phone'] = $data['data'][$j];
+                        $result[$j]['username'] = $user->username;
+                        $result[$j]['pic'] = $user->pic;
+                    }
+
+                    return response()->json(['code' => 0, 'msg' => '好友查询成功','data' => $result]);
                 } else {
                     return response()->json(['code' => 3, 'msg' => '好友查询失败，请检查电话是否正确']);
                 }
@@ -116,21 +126,19 @@ class Chat extends Model
             return response()->json(['code' => 1, 'msg' => '电话不存在']);
         }
     }
+
     public function search($content){
-        $options = [
-            'client_id' => 'YXA6v_G1cP6kEee68LNk5ttwmQ',
-            'client_secret' => 'YXA6Fh6SNyZBkz2KnJ0Yz9VU0SCmxJM',
-            'org_name' => '1134180121178783',
-            'app_name' => 'saiyou',
-        ];
-        $chat = new Easemob($options);
-        $users = $chat->getUsers();
+
+        $user = new User();
+        $users = $user->all();
         $j = 0;
-        for ($i = 0;$i < sizeof($users['entities']);$i++){
-            if (strpos($users['entities'][$i]['username'],$content) === false){
+        for ($i = 0;$i < sizeof($users);$i++){
+            if (strpos($users[$i]['username'],$content) === false){
 
             } else {
-                $data[$j] = $users['entities'][$i]['username'];
+                $data[$j]['phone'] = $users[$i]['phone'];
+                $data[$j]['username'] = $users[$i]['username'];
+                $data[$j]['pic'] = $users[$i]['pic'];
                 $j++;
             }
         }
@@ -143,10 +151,10 @@ class Chat extends Model
     }
     public function getChatRecord($ql){
         $options = [
-            'client_id' => 'YXA6v_G1cP6kEee68LNk5ttwmQ',
-            'client_secret' => 'YXA6Fh6SNyZBkz2KnJ0Yz9VU0SCmxJM',
-            'org_name' => '1134180121178783',
-            'app_name' => 'saiyou',
+            'client_id' => 'YXA6VdyDgPesEeej4u9_Bmthuw',
+            'client_secret' => 'YXA6nUFxy0XqHLiTu5X7FXgIH3CnAEE',
+            'org_name' => '1129180112178143',
+            'app_name' => 'neuqercc',
         ];
         $chat = new Easemob($options);
         $result = $chat->getChatRecord($ql);

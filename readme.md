@@ -75,6 +75,12 @@ password(string) | 传入密码  | 12345678912
     "msg": "请输入手机号"
 }
  ```
+  ```json
+ {
+     "code": 3,
+     "msg": "环信注册失败"
+ }
+  ```
  ```json
 {
     "code": -1,
@@ -97,10 +103,13 @@ password(string) | 传入密码  | 12345678912
  
  成功返回 
   ```json
- {
-     "code": 0,
-     "msg": "登录成功"
- }
+{
+    "code": 0,
+    "msg": "登陆成功",
+    "data": {
+        "phone": "15603301711"
+    }
+}
   ```
  
  失败返回
@@ -130,7 +139,10 @@ password(string) | 传入密码  | 12345678912
  ```json
 {
     "code": 0,
-    "msg": "登录成功"
+    "msg": "登陆成功",
+    "data": {
+        "token": "c247f4c176cd8a4fef81259b70a94a4c"
+    }
 }
  ```
 
@@ -184,12 +196,20 @@ password(string) | 传入密码  | 12345678912
     "msg": "密码不能为空"
 }
  ```
- ```json
+```json
 {
     "code": 2,
     "msg": "密码重置失败"
 }
- ```
+```
+```json
+{
+    "code": 3,
+    "msg": "环信密码重置失败"
+}
+```
+ 
+ 
  #### 修改个人信息
  
 > http://www.thmaoqiu.cn/saiyou/public/index.php/user/edit

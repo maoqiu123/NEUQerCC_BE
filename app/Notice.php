@@ -26,7 +26,7 @@ class Notice extends Model
             $teamPosition = explode(",", $team->team_position);
             $teamMember = explode(",", $team->team_member);
             for($i=0;$i<sizeof($teamPosition);$i++){
-                if ($teamPosition[$i] == 1){
+                if ($teamPosition[$i] == 0){
                     $recvNum = $teamMember[$i];
                     break;
                 }

@@ -1302,7 +1302,7 @@ order(string) | 传入比赛序号  | 1
  
  参数(类型) | 说明 | 示例
  ----|------|----
-  phone(string) | 传入队长手机  | 123456789
+ phone(string) | 传入队长手机  | 123456789
  team_name(string) | 传入队伍名称  | 毛球小队
  competition_desc(string) | 传入比赛名称  | bilibili比赛
  declaration(string) | 传入队伍宣言  | 我们是最棒的！

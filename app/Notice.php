@@ -35,33 +35,37 @@ class Notice extends Model
 
         $notice = new Notice();
         $notices = $notice->all();
+        $boo = true;
         for ($i=0;$i<sizeof($notices);$i++){
             if ($notices[$i]['sendNum'] == $sendNum){
-                $boo = true;
+                if ($notices[$i]['recvNum'] == $recvNum){
+                    if ($notices[$i]['teamId'] == $teamId){
+                        if ($notices[$i]['type'] == $type){
+                            $boo = true;
+                            break;
+                        }else{
+                            $boo = false;
+                            continue;
+                        }
+                    }else{
+                        $boo = false;
+                        continue;
+                    }
+                }else{
+                    $boo = false;
+                    continue;
+                }
             }else{
                 $boo = false;
-                break;
+                continue;
             }
-            if ($notices[$i]['recvNum'] == $recvNum){
-                $boo = true;
-            }else{
-                $boo = false;
-                break;
-            }
-            if ($notices[$i]['teamId'] == $teamId){
-                $boo = true;
-            }else{
-                $boo = false;
-                break;
-            }
-            if ($notices[$i]['type'] == $type){
-                $boo = true;
-            }else{
-                $boo = false;
-                break;
-            }
+
+
+
+
         }
-        if ($boo = false){
+
+        if ($boo == false){
             $data = [
                 'noticeId' => uniqid(),
                 'sendNum' => $sendNum,

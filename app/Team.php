@@ -297,7 +297,9 @@ class Team extends Model
         $team = Team::get();
         $j = 0;
         for ($i = 0;$i < sizeof($team);$i++){
-            if (str_contains($team[$i]['team_name'],$content)){
+            if (str_contains($team[$i]['team_name'], $content)) {
+                $result[$j++] = $team[$i];
+            } else if (str_contains($team[$i]['competition_desc'], $content)) {
                 $result[$j++] = $team[$i];
             }
         }

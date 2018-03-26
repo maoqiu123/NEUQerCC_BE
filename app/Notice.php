@@ -35,7 +35,7 @@ class Notice extends Model
 
         $notice = new Notice();
         $notices = $notice->all();
-        $boo = true;
+        $boo = false;
         for ($i=0;$i<sizeof($notices);$i++){
             if ($notices[$i]['sendNum'] == $sendNum){
                 if ($notices[$i]['recvNum'] == $recvNum){
@@ -59,10 +59,6 @@ class Notice extends Model
                 $boo = false;
                 continue;
             }
-
-
-
-
         }
 
         if ($boo == false){

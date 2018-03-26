@@ -284,6 +284,9 @@ class RegisterController extends Controller
             $glory_names = explode(',', $user->glory_name);
             $glory_times = explode(',', $user->glory_time);
             $glory_pics = explode(',', $user->glory_pic);
+            if (!isset($user->glory_name)){
+                return response()->json(['code'=>0,'msg'=>'查询用户荣誉墙资料成功','data'=>[]]);
+            }
             for ($i = 0;$i < sizeof($glory_names);$i ++){
                 $result[$i]['order'] = $i;
                 $result[$i]['glory_name'] = $glory_names[$i];

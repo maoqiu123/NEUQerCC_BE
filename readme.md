@@ -248,12 +248,18 @@ pic(file) | 传入用户头像  | C:\Users\hasee\Pictures\Camera Roll\1.jpg
     "msg": "修改用户信息失败"
 }
  ```
- ```json
+```json
 {
     "code": 2,
     "msg": "用户不存在"
 }
- ```
+```
+```json
+{
+    "code": 3,
+    "msg": "环信修改用户信息失败"
+}
+```
 
 
 
@@ -2203,5 +2209,124 @@ order(string) | 传入比赛序号  | 1
 {
     "code": 1,
     "msg": "无匹配用户"
+}
+```
+
+
+### 系统消息
+
+#### 添加系统消息
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/notice/add
+ 
+ 数据传输方式：POST
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ sendNum | 发送者手机 | 15076067012
+ recvNum | 接收者手机（可选填） | 15076067012
+ teamId | 队伍id | 6192962
+ userName | 发送者昵称 | mmmm
+ teamName | 队伍名 | 测试
+ type | 消息类型 | 0
+ 
+ 成功返回 
+```json
+ {
+     "code": 0,
+     "msg": "添加通知成功"
+ }
+```
+ 失败返回
+```json
+ {
+     "code": 1,
+     "msg": "添加通知失败"
+ }
+```
+```json
+{
+    "code": 2,
+    "msg": "请勿重复发送请求"
+}
+```
+
+
+#### 拉取系统消息
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/notice/get
+ 
+ 数据传输方式：GET
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ recvNum | 接收者手机（可选填） | 15076067012
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "拉取数据成功",
+    "data": [
+        {
+            "noticeId": "5ab7af1480cae",
+            "sendNum": "15076067012",
+            "recvNum": "15076067012",
+            "teamId": 6192962,
+            "teamName": "测试",
+            "userName": "mmmm",
+            "type": 0
+        },
+        {
+            "noticeId": "5ab7b6272304b",
+            "sendNum": "15076067012",
+            "recvNum": "15076067012",
+            "teamId": 6192962,
+            "teamName": "测试",
+            "userName": "mmmm",
+            "type": 0
+        }
+    ]
+}
+```
+ 失败返回
+```json
+{
+    "code": 1,
+    "msg": "拉取数据失败"
+}
+```
+
+#### 删除系统消息
+
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/notice/del
+ 
+ 数据传输方式：DELETE
+ 
+ 数据传输格式为：JSON
+ 
+ 
+ 参数(类型) | 说明 | 示例
+ ----|------|----
+ noticeId | 系统消息id | 5ab7af1480cae
+ 
+ 成功返回 
+```json
+{
+    "code": 0,
+    "msg": "删除通知成功"
+}
+```
+ 失败返回
+```json
+{
+    "code": 1,
+    "msg": "删除通知失败"
 }
 ```

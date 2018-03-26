@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use SmsManager;
 use \Yunpian\Sdk\YunpianClient;
 use App\Easemob;
+use Qiniu\Auth;
+use Qiniu\Storage\UploadManager;
 
 class RegisterController extends Controller
 {
@@ -103,14 +105,18 @@ class RegisterController extends Controller
             }
             if ($user->save()){
                 $options = [
-                    'client_id' => 'YXA6v_G1cP6kEee68LNk5ttwmQ',
-                    'client_secret' => 'YXA6Fh6SNyZBkz2KnJ0Yz9VU0SCmxJM',
-                    'org_name' => '1134180121178783',
-                    'app_name' => 'saiyou',
+                    'client_id' => 'YXA6VdyDgPesEeej4u9_Bmthuw',
+                    'client_secret' => 'YXA6nUFxy0XqHLiTu5X7FXgIH3CnAEE',
+                    'org_name' => '1129180112178143',
+                    'app_name' => 'neuqercc',
                 ];
-                $chat = new Easemob(OPTION);
-                $chat->editNickname($phone,$username);
-                return response()->json(['code'=>0,'msg'=>'修改用户信息成功']);
+                $chat = new Easemob($options);
+                if ($chat->editNickname($phone,$username)){
+                    return response()->json(['code'=>0,'msg'=>'修改用户信息成功']);
+                }else{
+                    return response()->json(['code'=>3,'msg'=>'环信修改用户信息失败']);
+                }
+
             }else{
                 return response()->json(['code'=>1,'msg'=>'修改用户信息失败']);
             }

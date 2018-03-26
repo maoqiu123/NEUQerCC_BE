@@ -78,6 +78,11 @@ Route::get('/chat/search','ChatController@search');
 
 Route::get('/getChatRecord','ChatController@getChatRecord');
 
+Route::post('/notice/add','NoticeController@add');
+Route::get('/notice/get','NoticeController@get');
+Route::delete('/notice/del','NoticeController@del');
+
+
 Route::get('/index',function (){
     return view('admin/index');
 });

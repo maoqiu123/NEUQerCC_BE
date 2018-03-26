@@ -474,9 +474,9 @@ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2
  }
   ```
   
-#### 删除荣誉墙
+#### 查询荣誉墙
  
- > http://www.thmaoqiu.cn/saiyou/public/index.php/user/glory_del
+ > http://www.thmaoqiu.cn/saiyou/public/index.php/user/glory_show
  
  数据传输方式：GET
  

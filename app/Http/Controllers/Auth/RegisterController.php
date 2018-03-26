@@ -38,7 +38,7 @@ class RegisterController extends Controller
             if ($user->where('phone', $phone)->first()) {
                 return response()->json(['code' => 1, 'msg' => '手机号已存在']);
             } else if ($user->create($data)) {
-                if($chat->createUser($phone,$data['password'],$randomUsername)){
+                if($chat->createUser($phone,'saiyouapp',$randomUsername)){
                     return response()->json(['code' => 0, 'msg' => '注册成功']);
                 }else{
                     return response()->json(['code' => 3, 'msg' => '环信注册失败']);

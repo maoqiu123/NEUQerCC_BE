@@ -50,6 +50,7 @@ class VerifyCsrfToken extends BaseVerifier
         '/friend/del',
 
         '/notice/add',
-        '/notice/del'
+        '/notice/del',
+
     ];
 }

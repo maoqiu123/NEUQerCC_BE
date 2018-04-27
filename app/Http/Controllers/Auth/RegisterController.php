@@ -12,10 +12,12 @@ use App\Easemob;
 use Qiniu\Auth;
 use Qiniu\Storage\UploadManager;
 
+
 class RegisterController extends Controller
 {
-
     use RegistersUsers;
+    private $accessKey = 'yi-qu1G_W7fSnAcH2GiLvg4BIbB0Bu2swKBXW_P8';
+    private $secretKey = 'Nu1ntfUCCBkPEVQYMZfi2Pvsb0VqBefecvjlNQu2';
 
     public function register($phone, $password)
     {
@@ -100,8 +102,26 @@ class RegisterController extends Controller
             $user->studentid = $studentid;
             $user->good_at = $good_at;
             if ($pic != ''){
-                $path2 = $pic->storeAs('pics', uniqid().'.jpg');
-                $user->pic = 'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path2;
+                $picNames = explode('/',$user->pic);
+                $picName = $picNames[sizeof($picNames)-1];
+                $auth = new Auth($this->accessKey, $this->secretKey);
+                $bucket = 'maoqiu';
+                // 生成上传Token
+                $token = $auth->uploadToken($bucket);
+                // 构建 UploadManager 对象
+                $uploadMgr = new UploadManager();
+                $key = uniqid().'.jpg';  //自动生成的文件名
+                if ($uploadMgr->putFile($token,$key,$pic)){
+                    $config = new \Qiniu\Config();
+                    $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
+                    if ($bucketManager->delete($bucket, $picName)){
+                        $user->pic = 'http://otq91javs.bkt.clouddn.com/'.$key;
+                    }else{
+                        return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
+                    }
+                }else{
+                    return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
+                }
             }
             if ($user->save()){
                 $options = [
@@ -169,16 +189,27 @@ class RegisterController extends Controller
     public function glory_add($phone,$glory_name,$glory_time,$glory_pic){
         $user = User::where('phone',$phone)->first();
         if ($glory_pic != ''){
-            $path1 = $glory_pic->storeAs('glory_pics',uniqid().'.jpg');
-            if ($user->glory_name != '' || $user->glory_time != '' || $user->glory_pic != ''){
-                $user->glory_name = $user->glory_name.','.$glory_name;
-                $user->glory_time = $user->glory_time.','.$glory_time;
-                $user->glory_pic = $user->glory_pic.','.'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path1;
+            $auth = new Auth($this->accessKey, $this->secretKey);
+            $bucket = 'maoqiu';
+            // 生成上传Token
+            $token = $auth->uploadToken($bucket);
+            // 构建 UploadManager 对象
+            $uploadMgr = new UploadManager();
+            $key = uniqid().'.jpg';  //自动生成的文件名
+            if ($uploadMgr->putFile($token,$key,$glory_pic)){
+                if ($user->glory_name != '' || $user->glory_time != '' || $user->glory_pic != ''){
+                    $user->glory_name = $user->glory_name.','.$glory_name;
+                    $user->glory_time = $user->glory_time.','.$glory_time;
+                    $user->glory_pic = $user->glory_pic.','.'http://otq91javs.bkt.clouddn.com/'.$key;
+                }else{
+                    $user->glory_name = $glory_name;
+                    $user->glory_time = $glory_time;
+                    $user->glory_pic = 'http://otq91javs.bkt.clouddn.com/'.$key;
+                }
             }else{
-                $user->glory_name = $glory_name;
-                $user->glory_time = $glory_time;
-                $user->glory_pic = 'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path1;
+                return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
             }
+
             if ($user->save()){
                 return response()->json(['code'=>0,'msg'=>'添加荣誉墙成功']);
             }else{
@@ -197,15 +228,33 @@ class RegisterController extends Controller
             $glory_times = explode(',', $user->glory_time);
             $glory_pics = explode(',', $user->glory_pic);
             if ($order <= sizeof($glory_names) && $order >= 1){
+                $picNames = explode('/',$glory_pics[$order-1]);
+                $picName = $picNames[sizeof($picNames)-1];
+                $auth = new Auth($this->accessKey, $this->secretKey);
+                $bucket = 'maoqiu';
+                // 生成上传Token
+                $token = $auth->uploadToken($bucket);
+                // 构建 UploadManager 对象
+                $uploadMgr = new UploadManager();
+                $key = uniqid().'.jpg';  //自动生成的文件名
+                if ($uploadMgr->putFile($token,$key,$glory_pic)){
+                    $config = new \Qiniu\Config();
+                    $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
+                    if ($bucketManager->delete($bucket, $picName)){
+                        $glory_pic = 'http://otq91javs.bkt.clouddn.com/'.$key;
+                    }else{
+                        return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
+                    }
 
+                }else{
+                    return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
+                }
             }else{
                 return response()->json(['code'=>2,'msg'=>'请检查输入的荣誉墙顺序是否正确']);
             }
 
             $glory_names[$order - 1] = $glory_name;
             $glory_times[$order - 1] = $glory_time;
-            $path = $glory_pic->storeAs('glory_pics', uniqid() . '.jpg');
-            $glory_pic = 'http://www.thmaoqiu.cn/saiyou/storage/app/' . $path;
             $glory_pics[$order - 1] = $glory_pic;
 
             $glory_names = implode(',', $glory_names);
@@ -256,6 +305,17 @@ class RegisterController extends Controller
             $orders = explode(',',$order);
             if ($order >= sizeof($glory_names)){
                 return response()->json(['code'=>3,'msg'=>'该荣誉墙序号不存在']);
+            }
+            $picNames = explode('/',$glory_pics[$order-1]);
+            $picName = $picNames[sizeof($picNames)-1];
+            $auth = new Auth($this->accessKey, $this->secretKey);
+            $bucket = 'maoqiu';
+            $config = new \Qiniu\Config();
+            $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
+            if ($bucketManager->delete($bucket, $picName)){
+
+            }else{
+                return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
             }
             foreach ($orders as $order){
                 unset($glory_names[$order-1]);

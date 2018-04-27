@@ -10,6 +10,8 @@ namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Qiniu\Auth;
+use Qiniu\Storage\UploadManager;
 
 class CompetitionDesc extends Model
 {
@@ -20,6 +22,8 @@ class CompetitionDesc extends Model
     protected $hidden = [
         'created_at','updated_at',
     ];
+    private $accessKey = 'yi-qu1G_W7fSnAcH2GiLvg4BIbB0Bu2swKBXW_P8';
+    private $secretKey = 'Nu1ntfUCCBkPEVQYMZfi2Pvsb0VqBefecvjlNQu2';
     public function add($name,$desc,$short_desc,$registration_time,$competition_time,$pic,$type){
         $competitiondesc = new CompetitionDesc();
         if ($time = strtotime($registration_time)){
@@ -31,16 +35,26 @@ class CompetitionDesc extends Model
             $competition_time = date('Y-m-d',time());
         }
         if ($pic != ''){
-            $path = $pic->storeAs('competitions',uniqid().'.jpg');
-            $data = [
-                'name' => $name,
-                'desc' => $desc,
-                'short_desc' => $short_desc,
-                'registration_time' => $registration_time,
-                'competition_time' => $competition_time,
-                'pic' => 'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path,
-                'type' => $type,
-            ];
+            $auth = new Auth($this->accessKey, $this->secretKey);
+            $bucket = 'maoqiu';
+            // 生成上传Token
+            $token = $auth->uploadToken($bucket);
+            // 构建 UploadManager 对象
+            $uploadMgr = new UploadManager();
+            $key = uniqid().'.jpg';  //自动生成的文件名
+            if ($uploadMgr->putFile($token,$key,$pic)){
+                $data = [
+                    'name' => $name,
+                    'desc' => $desc,
+                    'short_desc' => $short_desc,
+                    'registration_time' => $registration_time,
+                    'competition_time' => $competition_time,
+                    'pic' => 'http://otq91javs.bkt.clouddn.com/'.$key,
+                    'type' => $type,
+                ];
+            }else{
+                return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
+            }
         }else{
             $data = [
                 'name' => $name,
@@ -79,16 +93,36 @@ class CompetitionDesc extends Model
             $competition_time = $competitiondesc['competition_time'];
         }
         if ($pic != ''){
-            $path = $pic->storeAs('competitions',uniqid().'.jpg');
-            $data = [
-                'name' => $name,
-                'desc' => $desc,
-                'short_desc' => $short_desc,
-                'registration_time' => $registration_time,
-                'competition_time' => $competition_time,
-                'pic' => 'http://www.thmaoqiu.cn/saiyou/storage/app/'.$path,
-                'type' => $type,
-            ];
+            $auth = new Auth($this->accessKey, $this->secretKey);
+            $bucket = 'maoqiu';
+            // 生成上传Token
+            $token = $auth->uploadToken($bucket);
+            // 构建 UploadManager 对象
+            $uploadMgr = new UploadManager();
+            $key = uniqid().'.jpg';  //自动生成的文件名
+            if ($uploadMgr->putFile($token,$key,$pic)){
+                $picNames = explode('/',$competitiondesc->pic);
+                $picName = $picNames[sizeof($picNames)-1];
+                $auth = new Auth($this->accessKey, $this->secretKey);
+                $bucket = 'maoqiu';
+                $config = new \Qiniu\Config();
+                $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
+                if ($bucketManager->delete($bucket, $picName)){
+                    $data = [
+                        'name' => $name,
+                        'desc' => $desc,
+                        'short_desc' => $short_desc,
+                        'registration_time' => $registration_time,
+                        'competition_time' => $competition_time,
+                        'pic' => 'http://otq91javs.bkt.clouddn.com/'.$key,
+                        'type' => $type,
+                    ];
+                }else{
+                    return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
+                }
+            }else{
+                return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
+            }
         }else{
             $data = [
                 'name' => $name,
@@ -109,11 +143,22 @@ class CompetitionDesc extends Model
 
     public function del($id){
         if($competitiondesc = CompetitionDesc::where('id',$id)->first()){
-            if ($competitiondesc->delete()){
-                return response()->json(['code'=>0,'msg'=>'删除比赛成功']);
+            $picNames = explode('/',$competitiondesc->pic);
+            $picName = $picNames[sizeof($picNames)-1];
+            $auth = new Auth($this->accessKey, $this->secretKey);
+            $bucket = 'maoqiu';
+            $config = new \Qiniu\Config();
+            $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
+            if ($bucketManager->delete($bucket, $picName)){
+                if ($competitiondesc->delete()){
+                    return response()->json(['code'=>0,'msg'=>'删除比赛成功']);
+                }else{
+                    return response()->json(['code'=>1,'msg'=>'删除比赛失败']);
+                }
             }else{
-                return response()->json(['code'=>1,'msg'=>'删除比赛失败']);
+                return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
             }
+
         }else{
             return response()->json(['code'=>3,'msg'=>'该比赛id不存在']);
         }

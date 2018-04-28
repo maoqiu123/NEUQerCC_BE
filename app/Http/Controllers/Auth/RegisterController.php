@@ -302,26 +302,23 @@ class RegisterController extends Controller
             $glory_names = explode(',', $user->glory_name);
             $glory_times = explode(',', $user->glory_time);
             $glory_pics = explode(',', $user->glory_pic);
-            $orders = explode(',',$order);
+//            $orders = explode(',',$order);
+
             if ($order >= sizeof($glory_names)){
                 return response()->json(['code'=>3,'msg'=>'该荣誉墙序号不存在']);
             }
-            $picNames = explode('/',$glory_pics[$order-1]);
+            $picNames = explode('/',$glory_pics[$order]);
             $picName = $picNames[sizeof($picNames)-1];
             $auth = new Auth($this->accessKey, $this->secretKey);
             $bucket = 'maoqiu';
             $config = new \Qiniu\Config();
             $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
-            if ($bucketManager->delete($bucket, $picName)){
-
-            }else{
-                return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
-            }
-            foreach ($orders as $order){
-                unset($glory_names[$order-1]);
-                unset($glory_times[$order-1]);
-                unset($glory_pics[$order-1]);
-            }
+            $bucketManager->delete($bucket, $picName);
+//            foreach ($orders as $order){
+                unset($glory_names[$order]);
+                unset($glory_times[$order]);
+                unset($glory_pics[$order]);
+//            }
             $glory_names = implode(',', $glory_names);
             $glory_times = implode(',', $glory_times);
             $glory_pics = implode(',', $glory_pics);

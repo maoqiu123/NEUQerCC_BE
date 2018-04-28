@@ -104,14 +104,11 @@ class Raider extends Model
             $bucket = 'maoqiu';
             $config = new \Qiniu\Config();
             $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
-            if ($bucketManager->delete($bucket, $picName)){
-                if ($raider->delete()){
-                    return response()->json(['code'=>0,'msg'=>'删除大神攻略成功']);
-                }else{
-                    return response()->json(['code'=>2,'msg'=>'删除大神攻略失败']);
-                }
+            $bucketManager->delete($bucket, $picName);
+            if ($raider->delete()){
+                return response()->json(['code'=>0,'msg'=>'删除大神攻略成功']);
             }else{
-                return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
+                return response()->json(['code'=>2,'msg'=>'删除大神攻略失败']);
             }
         }else{
             return response()->json(['code'=>1,'msg'=>'删除大神攻略失败,请检查攻略id是否正确']);

@@ -48,16 +48,12 @@ class Carousel extends Model
             $bucket = 'maoqiu';
             $config = new \Qiniu\Config();
             $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
-            if ($bucketManager->delete($bucket, $picName)){
-                if ($carousels->where('order',$order)->delete()){
-                    return response()->json(['code'=>0,'msg'=>'删除轮播图成功']);
-                }else{
-                    return response()->json(['code'=>1,'msg'=>'删除轮播图失败']);
-                }
-            }else{
-                return response()->json(['code'=>5,'msg'=>'七牛云连接失败']);
+            $bucketManager->delete($bucket, $picName);
+            if ($carousels->where('order', $order)->delete()) {
+                return response()->json(['code' => 0, 'msg' => '删除轮播图成功']);
+            } else {
+                return response()->json(['code' => 1, 'msg' => '删除轮播图失败']);
             }
-
         }else{
             return response()->json(['code'=>4,'msg'=>'轮播图未找到']);
         }

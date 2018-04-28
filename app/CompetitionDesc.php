@@ -149,16 +149,12 @@ class CompetitionDesc extends Model
             $bucket = 'maoqiu';
             $config = new \Qiniu\Config();
             $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
-            if ($bucketManager->delete($bucket, $picName)){
-                if ($competitiondesc->delete()){
-                    return response()->json(['code'=>0,'msg'=>'删除比赛成功']);
-                }else{
-                    return response()->json(['code'=>1,'msg'=>'删除比赛失败']);
-                }
+            $bucketManager->delete($bucket, $picName);
+            if ($competitiondesc->delete()){
+                return response()->json(['code'=>0,'msg'=>'删除比赛成功']);
             }else{
-                return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
+                return response()->json(['code'=>1,'msg'=>'删除比赛失败']);
             }
-
         }else{
             return response()->json(['code'=>3,'msg'=>'该比赛id不存在']);
         }

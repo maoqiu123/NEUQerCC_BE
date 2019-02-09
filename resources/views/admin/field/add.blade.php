@@ -47,7 +47,7 @@
 
 <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <form action="http://www.thmaoqiu.cn/saiyou/public/index.php/other/field_add" method="post" enctype="multipart/form-data">
+        <form action="http://www.thmaoqiu.cn/other/field_add" method="post" enctype="multipart/form-data">
             <input type="text" name="content" placeholder="传入领域"><br />
             <input type="submit">
         </form>

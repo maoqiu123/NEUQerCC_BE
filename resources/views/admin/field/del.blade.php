@@ -47,7 +47,7 @@
 
 <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <form action="http://www.thmaoqiu.cn/saiyou/public/index.php/other/field_del" method="post" enctype="multipart/form-data">
+        <form action="http://www.thmaoqiu.cn/other/field_del" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="DELETE">
             <input type="text" name="order" placeholder="传入领域序号"><br />
             <input type="submit">

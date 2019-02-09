@@ -47,7 +47,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <form action="http://www.thmaoqiu.cn/saiyou/public/index.php/type/del" enctype="multipart/form-data" method="post">
+        <form action="http://www.thmaoqiu.cn/type/del" enctype="multipart/form-data" method="post">
             <input type="hidden" name="_method" value="DELETE">
             <input name="order" type="text" placeholder="传入比赛序号">
             <input type="submit">

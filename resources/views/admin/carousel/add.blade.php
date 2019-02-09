@@ -47,7 +47,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <form action="http://www.thmaoqiu.cn/saiyou/public/index.php/carousel/add" enctype="multipart/form-data" method="post">
+        <form action="http://www.thmaoqiu.cn/carousel/add" enctype="multipart/form-data" method="post">
             <input name="carousel" type="file">
             <input name="order" type="text" placeholder="传入轮播图序号">
             <input type="submit">

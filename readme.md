@@ -2,13 +2,13 @@
 
 ### 后台管理页面
 
-> http://www.thmaoqiu.cn/saiyou/public/index.php/index
+> http://www.thmaoqiu.cn/index
 
 ### 登陆注册
 
 #### sms
 
-> http://www.thmaoqiu.cn/saiyou/public/index.php/sms
+> http://www.thmaoqiu.cn/sms
 
 数据传输方式：POST
 
@@ -42,7 +42,7 @@ phone(string) | 传入手机号  | 12345678912
 
 #### 注册
 
-> http://www.thmaoqiu.cn/saiyou/public/index.php/register
+> http://www.thmaoqiu.cn/register
 
 数据传输方式：POST
 
@@ -90,7 +90,7 @@ password(string) | 传入密码  | 12345678912
  
  #### 登录检验
  
- > http://www.thmaoqiu.cn/saiyou/public/index.php/check
+ > http://www.thmaoqiu.cn/check
  
  数据传输方式：POST
  
@@ -123,7 +123,7 @@ password(string) | 传入密码  | 12345678912
  
 #### 登录
 
-> http://www.thmaoqiu.cn/saiyou/public/index.php/login
+> http://www.thmaoqiu.cn/login
 
 数据传输方式：POST
 
@@ -169,7 +169,7 @@ password(string) | 传入密码  | 12345678912
  
 #### 忘记密码
 
-> http://www.thmaoqiu.cn/saiyou/public/index.php/forgot
+> http://www.thmaoqiu.cn/forgot
 
 数据传输方式：POST
 
@@ -212,7 +212,7 @@ password(string) | 传入密码  | 12345678912
  
  #### 修改个人信息
  
-> http://www.thmaoqiu.cn/saiyou/public/index.php/user/edit
+> http://www.thmaoqiu.cn/user/edit
 
 数据传输方式：POST
 
@@ -271,7 +271,7 @@ pic(file) | 传入用户头像  | C:\Users\hasee\Pictures\Camera Roll\1.jpg
 
  #### 查询个人信息
  
-> http://www.thmaoqiu.cn/saiyou/public/index.php/user/show
+> http://www.thmaoqiu.cn/user/show
 
 数据传输方式：GET
 
@@ -313,7 +313,7 @@ phone(string) | 传入手机号  | 12345678912
  
  #### 查询我的队伍
  
-> http://www.thmaoqiu.cn/saiyou/public/index.php/user/team_list
+> http://www.thmaoqiu.cn/user/team_list
 
 数据传输方式：GET
 
@@ -363,7 +363,7 @@ phone(string) | 传入手机号  | 12345678912
 
 #### 添加荣誉墙
 
-> http://www.thmaoqiu.cn/saiyou/public/index.php/user/glory_add
+> http://www.thmaoqiu.cn/user/glory_add
 
 数据传输方式：POST
 
@@ -407,7 +407,7 @@ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2
  
  #### 修改荣誉墙
  
- > http://www.thmaoqiu.cn/saiyou/public/index.php/user/glory_edit
+ > http://www.thmaoqiu.cn/user/glory_edit
  
  数据传输方式：POST
  
@@ -452,7 +452,7 @@ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2
 
  #### 删除荣誉墙
  
- > http://www.thmaoqiu.cn/saiyou/public/index.php/user/glory_del
+ > http://www.thmaoqiu.cn/user/glory_del
  
  数据传输方式：DELETE
  
@@ -500,7 +500,7 @@ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2
   
 #### 查询荣誉墙
  
- > http://www.thmaoqiu.cn/saiyou/public/index.php/user/glory_show
+ > http://www.thmaoqiu.cn/user/glory_show
  
  数据传输方式：GET
  
@@ -543,7 +543,7 @@ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2
 
 #### 用户喜好
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/user/like
+ > http://www.thmaoqiu.cn/user/like
  
  数据传输方式：POST
  
@@ -589,7 +589,7 @@ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2
  #### 添加比赛轮播图
  
  
-> http://www.thmaoqiu.cn/saiyou/public/index.php/carousel/add
+> http://www.thmaoqiu.cn/carousel/add
 
 数据传输方式：POST
 
@@ -645,7 +645,7 @@ order(string) | 传入轮播图序号  | 1
  #### 删除比赛轮播图
  
  
-> http://www.thmaoqiu.cn/saiyou/public/index.php/carousel/del
+> http://www.thmaoqiu.cn/carousel/del
 
 数据传输方式：DELETE
 
@@ -699,7 +699,7 @@ order(string) | 传入图片序号  | 1
  #### 查询比赛轮播图
   
   
- > http://www.thmaoqiu.cn/saiyou/public/index.php/carousel/show
+ > http://www.thmaoqiu.cn/carousel/show
  
  数据传输方式：GET
  
@@ -762,7 +762,7 @@ order(string) | 传入图片序号  | 1
  
  #### 添加比赛类别
  
-> http://www.thmaoqiu.cn/saiyou/public/index.php/type/add
+> http://www.thmaoqiu.cn/type/add
 
 数据传输方式：POST
 
@@ -810,7 +810,7 @@ order(string) | 传入比赛序号  | 1
  
   #### 删除比赛类别
   
- > http://www.thmaoqiu.cn/saiyou/public/index.php/type/del
+ > http://www.thmaoqiu.cn/type/del
  
  数据传输方式：DELETE
  
@@ -852,7 +852,7 @@ order(string) | 传入比赛序号  | 1
   
    #### 查询比赛类别
    
-  > http://www.thmaoqiu.cn/saiyou/public/index.php/type/show
+  > http://www.thmaoqiu.cn/type/show
   
   数据传输方式：GET
   
@@ -904,7 +904,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加比赛
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/desc/add
+ > http://www.thmaoqiu.cn/desc/add
  
  数据传输方式：POST
  
@@ -948,7 +948,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 修改比赛
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/desc/edit
+ > http://www.thmaoqiu.cn/desc/edit
  
  数据传输方式：POST
  
@@ -998,7 +998,7 @@ order(string) | 传入比赛序号  | 1
   
 #### 删除比赛
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/desc/del
+ > http://www.thmaoqiu.cn/desc/del
  
  数据传输方式：DELETE
  
@@ -1046,7 +1046,7 @@ order(string) | 传入比赛序号  | 1
   
 #### 查询单个比赛
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/desc/show
+ > http://www.thmaoqiu.cn/desc/show
  
  数据传输方式：GET
  
@@ -1090,7 +1090,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询多个比赛
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/descs/show
+ > http://www.thmaoqiu.cn/descs/show
  
  数据传输方式：GET
  
@@ -1133,7 +1133,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 搜索比赛
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/desc/search
+ > http://www.thmaoqiu.cn/desc/search
  
  数据传输方式：POST
  
@@ -1188,7 +1188,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加大神攻略
 
-> http://www.thmaoqiu.cn/saiyou/public/index.php/raider/add
+> http://www.thmaoqiu.cn/raider/add
  
  数据传输方式：POST
  
@@ -1239,7 +1239,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 修改大神攻略
 
-> http://www.thmaoqiu.cn/saiyou/public/index.php/raider/edit
+> http://www.thmaoqiu.cn/raider/edit
  
  数据传输方式：POST
  
@@ -1290,7 +1290,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 删除大神攻略
 
-> http://www.thmaoqiu.cn/saiyou/public/index.php/raider/del
+> http://www.thmaoqiu.cn/raider/del
  
  数据传输方式：DELETE
  
@@ -1332,7 +1332,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询大神攻略
    
-> http://www.thmaoqiu.cn/saiyou/public/index.php/raider/show
+> http://www.thmaoqiu.cn/raider/show
     
  数据传输格式为：JSON
  
@@ -1371,7 +1371,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加队伍
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/team/add
+ > http://www.thmaoqiu.cn/team/add
  
  数据传输方式：POST
  
@@ -1411,7 +1411,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加队伍成员
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/team/member_add
+ > http://www.thmaoqiu.cn/team/member_add
  
  数据传输方式：POST
  
@@ -1461,7 +1461,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 删除队伍成员
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/team/member_del
+ > http://www.thmaoqiu.cn/team/member_del
  
  数据传输方式：DELETE
  
@@ -1510,7 +1510,7 @@ order(string) | 传入比赛序号  | 1
   
 #### 查询队伍成员
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/team/member_show
+ > http://www.thmaoqiu.cn/team/member_show
  
  数据传输方式：GET
  
@@ -1561,7 +1561,7 @@ order(string) | 传入比赛序号  | 1
   
 #### 修改队伍
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/team/edit
+ > http://www.thmaoqiu.cn/team/edit
  
  数据传输方式：POST
  
@@ -1607,7 +1607,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 删除队伍
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/team/del
+ > http://www.thmaoqiu.cn/team/del
  
  数据传输方式：DELETE
  
@@ -1649,7 +1649,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询单支队伍
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/team/show
+ > http://www.thmaoqiu.cn/team/show
  
  数据传输方式：GET
  
@@ -1706,7 +1706,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询多支队伍
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/teams/show
+ > http://www.thmaoqiu.cn/teams/show
  
  数据传输方式：GET
  
@@ -1750,7 +1750,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 推荐队伍
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/team/recommend
+ > http://www.thmaoqiu.cn/team/recommend
  
  数据传输方式：GET
  
@@ -1796,7 +1796,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 搜索队伍
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/team/search
+ > http://www.thmaoqiu.cn/team/search
  
  数据传输方式：POST
  
@@ -1849,7 +1849,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加意见反馈
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/feedback
+ > http://www.thmaoqiu.cn/feedback
  
  数据传输方式：POST
  
@@ -1882,7 +1882,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加年份
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/other/year_add
+ > http://www.thmaoqiu.cn/other/year_add
  
  数据传输方式：POST
  
@@ -1913,7 +1913,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 删除年份
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/other/year_del
+ > http://www.thmaoqiu.cn/other/year_del
  
  数据传输方式：DELETE
  
@@ -1950,7 +1950,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询年份
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/other/year_show
+ > http://www.thmaoqiu.cn/other/year_show
  
  数据传输方式：GET
  
@@ -1990,7 +1990,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加擅长领域（资料编辑）
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/other/field_add
+ > http://www.thmaoqiu.cn/other/field_add
  
  数据传输方式：POST
  
@@ -2021,7 +2021,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 删除领域
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/other/field_del
+ > http://www.thmaoqiu.cn/other/field_del
  
  数据传输方式：DELETE
  
@@ -2058,7 +2058,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询领域份
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/other/field_show
+ > http://www.thmaoqiu.cn/other/field_show
  
  数据传输方式：GET
  
@@ -2101,7 +2101,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加好友
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/friend/add
+ > http://www.thmaoqiu.cn/friend/add
  
  数据传输方式：POST
  
@@ -2162,7 +2162,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 删除好友
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/friend/del
+ > http://www.thmaoqiu.cn/friend/del
  
  数据传输方式：DELETE
  
@@ -2211,7 +2211,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询好友
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/friend/show
+ > http://www.thmaoqiu.cn/friend/show
  
  数据传输方式：GET
  
@@ -2256,7 +2256,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 搜索用户
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/chat/search
+ > http://www.thmaoqiu.cn/chat/search
  
  数据传输方式：GET
  
@@ -2295,7 +2295,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加系统消息
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/notice/add
+ > http://www.thmaoqiu.cn/notice/add
  
  数据传输方式：POST
  
@@ -2335,7 +2335,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 拉取系统消息
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/notice/get
+ > http://www.thmaoqiu.cn/notice/get
  
  数据传输方式：GET
  
@@ -2383,7 +2383,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 删除系统消息
 
- > http://www.thmaoqiu.cn/saiyou/public/index.php/notice/del
+ > http://www.thmaoqiu.cn/notice/del
  
  数据传输方式：DELETE
  

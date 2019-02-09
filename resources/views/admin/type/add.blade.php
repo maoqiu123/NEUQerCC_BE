@@ -47,7 +47,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <form action="http://www.thmaoqiu.cn/saiyou/public/index.php/type/add" enctype="multipart/form-data" method="post">
+        <form action="http://www.thmaoqiu.cn/type/add" enctype="multipart/form-data" method="post">
             <input name="name" type="text" placeholder="传入比赛类别">
             <input name="order" type="text" placeholder="传入比赛序号">
             <input type="submit">

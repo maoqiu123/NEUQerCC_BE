@@ -47,7 +47,7 @@
 
 <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <form action="http://www.thmaoqiu.cn/saiyou/public/index.php/raider/add" method="post" enctype="multipart/form-data">
+        <form action="http://www.thmaoqiu.cn/raider/add" method="post" enctype="multipart/form-data">
             <input type="text" name="id" placeholder="传入攻略id"><br />
             <input type="text" name="name" placeholder="传入攻略名字（题目）"><br />
             <input type="text" name="desc" placeholder="传入攻略内容"><br />

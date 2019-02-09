@@ -22,8 +22,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/carousel/add"><i class="fa fa-circle-o"></i>添加轮播图</a></li>
-                    <li><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/carousel/del"><i class="fa fa-circle-o"></i>删除轮播图</a></li>
+                    <li><a href="http://www.thmaoqiu.cn/carousel/add"><i class="fa fa-circle-o"></i>添加轮播图</a></li>
+                    <li><a href="http://www.thmaoqiu.cn/carousel/del"><i class="fa fa-circle-o"></i>删除轮播图</a></li>
                 </ul>
             </li>
 
@@ -35,8 +35,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/type/add"><i class="fa fa-circle-o"></i>添加比赛类别</a></li>
-                    <li><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/type/del"><i class="fa fa-circle-o"></i>删除比赛类别</a></li>
+                    <li><a href="http://www.thmaoqiu.cn/type/add"><i class="fa fa-circle-o"></i>添加比赛类别</a></li>
+                    <li><a href="http://www.thmaoqiu.cn/type/del"><i class="fa fa-circle-o"></i>删除比赛类别</a></li>
                 </ul>
             </li>
 
@@ -48,11 +48,11 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class=""><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/desc/add"><i
+                    <li class=""><a href="http://www.thmaoqiu.cn/desc/add"><i
                                     class="fa fa-circle-o"></i>添加比赛</a></li>
-                    <li><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/desc/edit"><i class="fa fa-circle-o"></i>修改比赛</a>
+                    <li><a href="http://www.thmaoqiu.cn/desc/edit"><i class="fa fa-circle-o"></i>修改比赛</a>
                     </li>
-                    <li><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/desc/del"><i class="fa fa-circle-o"></i>删除比赛</a>
+                    <li><a href="http://www.thmaoqiu.cn/desc/del"><i class="fa fa-circle-o"></i>删除比赛</a>
                     </li>
                 </ul>
             </li>
@@ -65,11 +65,11 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class=""><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/glory/add"><i
+                    <li class=""><a href="http://www.thmaoqiu.cn/glory/add"><i
                                     class="fa fa-circle-o"></i>添加荣誉墙</a></li>
-                    <li><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/glory/edit"><i class="fa fa-circle-o"></i>修改荣誉墙</a>
+                    <li><a href="http://www.thmaoqiu.cn/glory/edit"><i class="fa fa-circle-o"></i>修改荣誉墙</a>
                     </li>
-                    <li><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/glory/del"><i class="fa fa-circle-o"></i>删除荣誉墙</a>
+                    <li><a href="http://www.thmaoqiu.cn/glory/del"><i class="fa fa-circle-o"></i>删除荣誉墙</a>
                     </li>
                 </ul>
             </li>
@@ -82,11 +82,11 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class=""><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/raider/add"><i
+                    <li class=""><a href="http://www.thmaoqiu.cn/raider/add"><i
                                     class="fa fa-circle-o"></i>添加大神攻略</a></li>
-                    <li><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/raider/edit"><i class="fa fa-circle-o"></i>修改大神攻略</a>
+                    <li><a href="http://www.thmaoqiu.cn/raider/edit"><i class="fa fa-circle-o"></i>修改大神攻略</a>
                     </li>
-                    <li><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/raider/del"><i class="fa fa-circle-o"></i>删除大神攻略</a>
+                    <li><a href="http://www.thmaoqiu.cn/raider/del"><i class="fa fa-circle-o"></i>删除大神攻略</a>
                     </li>
                 </ul>
             </li>
@@ -97,8 +97,8 @@
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class=""><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/year/add"><i class="fa fa-circle-o"></i>添加年份</a></li>
-                    <li><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/year/del"><i class="fa fa-circle-o"></i>删除年份</a>
+                    <li class=""><a href="http://www.thmaoqiu.cn/year/add"><i class="fa fa-circle-o"></i>添加年份</a></li>
+                    <li><a href="http://www.thmaoqiu.cn/year/del"><i class="fa fa-circle-o"></i>删除年份</a>
                     </li>
                 </ul>
             </li>
@@ -109,8 +109,8 @@
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class=""><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/field/add"><i class="fa fa-circle-o"></i>添加领域</a></li>
-                    <li><a href="http://www.thmaoqiu.cn/saiyou/public/index.php/field/del"><i class="fa fa-circle-o"></i>删除领域</a>
+                    <li class=""><a href="http://www.thmaoqiu.cn/field/add"><i class="fa fa-circle-o"></i>添加领域</a></li>
+                    <li><a href="http://www.thmaoqiu.cn/field/del"><i class="fa fa-circle-o"></i>删除领域</a>
                     </li>
                 </ul>
             </li>

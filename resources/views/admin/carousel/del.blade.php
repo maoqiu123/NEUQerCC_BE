@@ -47,7 +47,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <form action="http://www.thmaoqiu.cn/saiyou/public/index.php/carousel/del" enctype="multipart/form-data" method="POST">
+        <form action="http://www.thmaoqiu.cn/carousel/del" enctype="multipart/form-data" method="POST">
             <input type="hidden" name="_method" value="DELETE">
             <input name="order" type="text" placeholder="传入轮播图序号">
             <input type="submit">

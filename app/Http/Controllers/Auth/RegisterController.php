@@ -115,7 +115,7 @@ class RegisterController extends Controller
                     $config = new \Qiniu\Config();
                     $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
                     if ($bucketManager->delete($bucket, $picName)){
-                        $user->pic = 'http://otq91javs.bkt.clouddn.com/'.$key;
+                        $user->pic = 'http://sy.thmaoqiu.cn/'.$key;
                     }else{
                         return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
                     }
@@ -200,11 +200,11 @@ class RegisterController extends Controller
                 if ($user->glory_name != '' || $user->glory_time != '' || $user->glory_pic != ''){
                     $user->glory_name = $user->glory_name.','.$glory_name;
                     $user->glory_time = $user->glory_time.','.$glory_time;
-                    $user->glory_pic = $user->glory_pic.','.'http://otq91javs.bkt.clouddn.com/'.$key;
+                    $user->glory_pic = $user->glory_pic.','.'http://sy.thmaoqiu.cn/'.$key;
                 }else{
                     $user->glory_name = $glory_name;
                     $user->glory_time = $glory_time;
-                    $user->glory_pic = 'http://otq91javs.bkt.clouddn.com/'.$key;
+                    $user->glory_pic = 'http://sy.thmaoqiu.cn/'.$key;
                 }
             }else{
                 return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
@@ -241,7 +241,7 @@ class RegisterController extends Controller
                     $config = new \Qiniu\Config();
                     $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
                     if ($bucketManager->delete($bucket, $picName)){
-                        $glory_pic = 'http://otq91javs.bkt.clouddn.com/'.$key;
+                        $glory_pic = 'http://sy.thmaoqiu.cn/'.$key;
                     }else{
                         return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
                     }

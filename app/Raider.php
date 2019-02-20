@@ -41,7 +41,7 @@ class Raider extends Model
                 'id' => $id,
                 'name' => $name,
                 'desc' => $desc,
-                'pic' => 'http://otq91javs.bkt.clouddn.com/'.$key,
+                'pic' => 'http://sy.thmaoqiu.cn/'.$key,
             ];
         }else{
             return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
@@ -78,7 +78,7 @@ class Raider extends Model
                     $config = new \Qiniu\Config();
                     $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
                     if ($bucketManager->delete($bucket, $picName)){
-                        $raider->pic = 'http://otq91javs.bkt.clouddn.com/'.$key;
+                        $raider->pic = 'http://sy.thmaoqiu.cn/'.$key;
                     }else{
                         return response()->json(['code'=>4,'msg'=>'七牛云连接失败']);
                     }

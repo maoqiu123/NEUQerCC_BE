@@ -24,7 +24,7 @@ class Carousel extends Model
         $uploadMgr = new UploadManager();
         $key = uniqid().'.jpg';  //自动生成的文件名
         if ($uploadMgr->putFile($token,$key,$carousel)){
-            $url = 'http://otq91javs.bkt.clouddn.com/'.$key;
+            $url = 'http://sy.thmaoqiu.cn/'.$key;
         }else{
             return response()->json(['code'=>5,'msg'=>'七牛云连接失败']);
         }

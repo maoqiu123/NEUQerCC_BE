@@ -49,7 +49,7 @@ class CompetitionDesc extends Model
                     'short_desc' => $short_desc,
                     'registration_time' => $registration_time,
                     'competition_time' => $competition_time,
-                    'pic' => 'http://otq91javs.bkt.clouddn.com/'.$key,
+                    'pic' => 'http://sy.thmaoqiu.cn/'.$key,
                     'type' => $type,
                 ];
             }else{
@@ -114,7 +114,7 @@ class CompetitionDesc extends Model
                         'short_desc' => $short_desc,
                         'registration_time' => $registration_time,
                         'competition_time' => $competition_time,
-                        'pic' => 'http://otq91javs.bkt.clouddn.com/'.$key,
+                        'pic' => 'http://sy.thmaoqiu.cn/'.$key,
                         'type' => $type,
                     ];
                 }else{

@@ -195,9 +195,10 @@ class CompetitionDesc extends Model
 
     public function search($content){
         $desc = CompetitionDesc::get();
+        $result = [];
         for ($i = 0;$i < sizeof($desc);$i++){
             if (str_contains($desc[$i]['name'],$content)){
-                $result[$i] = $desc[$i];
+                array_push($result,$desc[$i]);
             }
         }
         if(empty($result)){

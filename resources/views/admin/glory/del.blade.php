@@ -47,7 +47,7 @@
 
 <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <form action="http://www.thmaoqiu.cn/user/glory_del" method="post" enctype="multipart/form-data">
+        <form action="http://neuqercc.thmaoqiu.cn/user/glory_del" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="DELETE">
             <input type="text" name="order" placeholder="传入要修改的荣誉墙序号"><br />
             <input type="text" name="phone" placeholder="传入用户手机号"><br />

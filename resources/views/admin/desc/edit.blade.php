@@ -47,7 +47,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <form action="http://www.thmaoqiu.cn/desc/edit" method="post" enctype="multipart/form-data">
+        <form action="http://neuqercc.thmaoqiu.cn/desc/edit" method="post" enctype="multipart/form-data">
             <input type="text" name="id" placeholder="传入比赛id"><br />
             <input type="text" name="name" placeholder="传入比赛名称"><br />
             <input type="text" name="desc" placeholder="传入比赛具体信息"><br />

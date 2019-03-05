@@ -2,13 +2,13 @@
 
 ### 后台管理页面
 
-> http://www.thmaoqiu.cn/index
+> http://neuqercc.thmaoqiu.cn/index
 
 ### 登陆注册
 
 #### sms
 
-> http://www.thmaoqiu.cn/sms
+> http://neuqercc.thmaoqiu.cn/sms
 
 数据传输方式：POST
 
@@ -42,7 +42,7 @@ phone(string) | 传入手机号  | 12345678912
 
 #### 注册
 
-> http://www.thmaoqiu.cn/register
+> http://neuqercc.thmaoqiu.cn/register
 
 数据传输方式：POST
 
@@ -90,7 +90,7 @@ password(string) | 传入密码  | 12345678912
  
  #### 登录检验
  
- > http://www.thmaoqiu.cn/check
+ > http://neuqercc.thmaoqiu.cn/check
  
  数据传输方式：POST
  
@@ -123,7 +123,7 @@ password(string) | 传入密码  | 12345678912
  
 #### 登录
 
-> http://www.thmaoqiu.cn/login
+> http://neuqercc.thmaoqiu.cn/login
 
 数据传输方式：POST
 
@@ -169,7 +169,7 @@ password(string) | 传入密码  | 12345678912
  
 #### 忘记密码
 
-> http://www.thmaoqiu.cn/forgot
+> http://neuqercc.thmaoqiu.cn/forgot
 
 数据传输方式：POST
 
@@ -212,7 +212,7 @@ password(string) | 传入密码  | 12345678912
  
  #### 修改个人信息
  
-> http://www.thmaoqiu.cn/user/edit
+> http://neuqercc.thmaoqiu.cn/user/edit
 
 数据传输方式：POST
 
@@ -271,7 +271,7 @@ pic(file) | 传入用户头像  | C:\Users\hasee\Pictures\Camera Roll\1.jpg
 
  #### 查询个人信息
  
-> http://www.thmaoqiu.cn/user/show
+> http://neuqercc.thmaoqiu.cn/user/show
 
 数据传输方式：GET
 
@@ -291,7 +291,7 @@ phone(string) | 传入手机号  | 12345678912
         "username": "maoqiu",
         "phone": "15076067012",
         "phonesee": 1,
-        "pic": "http://www.thmaoqiu.cn/saiyou/storage/app/pics/5a0c57e2759f2.jpg",
+        "pic": "http://neuqercc.thmaoqiu.cn/saiyou/storage/app/pics/5a0c57e2759f2.jpg",
         "name": "thth",
         "namesee": 1, 
         "major": "通信工程",
@@ -313,7 +313,7 @@ phone(string) | 传入手机号  | 12345678912
  
  #### 查询我的队伍
  
-> http://www.thmaoqiu.cn/user/team_list
+> http://neuqercc.thmaoqiu.cn/user/team_list
 
 数据传输方式：GET
 
@@ -363,7 +363,7 @@ phone(string) | 传入手机号  | 12345678912
 
 #### 添加荣誉墙
 
-> http://www.thmaoqiu.cn/user/glory_add
+> http://neuqercc.thmaoqiu.cn/user/glory_add
 
 数据传输方式：POST
 
@@ -407,7 +407,7 @@ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2
  
  #### 修改荣誉墙
  
- > http://www.thmaoqiu.cn/user/glory_edit
+ > http://neuqercc.thmaoqiu.cn/user/glory_edit
  
  数据传输方式：POST
  
@@ -452,7 +452,7 @@ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2
 
  #### 删除荣誉墙
  
- > http://www.thmaoqiu.cn/user/glory_del
+ > http://neuqercc.thmaoqiu.cn/user/glory_del
  
  数据传输方式：DELETE
  
@@ -500,7 +500,7 @@ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2
   
 #### 查询荣誉墙
  
- > http://www.thmaoqiu.cn/user/glory_show
+ > http://neuqercc.thmaoqiu.cn/user/glory_show
  
  数据传输方式：GET
  
@@ -521,13 +521,13 @@ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2
             "order": 0,
             "glory_name": "蓝桥杯",
             "glory_time": "2017",
-            "glory_pic": "http://www.thmaoqiu.cn/saiyou/storage/app/glory_pics/5a1ecb3fce894.jpg"
+            "glory_pic": "http://neuqercc.thmaoqiu.cn/saiyou/storage/app/glory_pics/5a1ecb3fce894.jpg"
         },
         {
             "order": 1,
             "glory_name": "蓝桥杯3",
             "glory_time": "2017",
-            "glory_pic": "http://www.thmaoqiu.cn/saiyou/storage/app/glory_pics/5a1ecc350dea8.jpg"
+            "glory_pic": "http://neuqercc.thmaoqiu.cn/saiyou/storage/app/glory_pics/5a1ecc350dea8.jpg"
         }
     ]
 }
@@ -543,7 +543,7 @@ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2
 
 #### 用户喜好
 
- > http://www.thmaoqiu.cn/user/like
+ > http://neuqercc.thmaoqiu.cn/user/like
  
  数据传输方式：POST
  
@@ -589,7 +589,7 @@ glory_pic(file) | 传入荣誉墙图片  | C:\Users\hasee\Pictures\Camera Roll\2
  #### 添加比赛轮播图
  
  
-> http://www.thmaoqiu.cn/carousel/add
+> http://neuqercc.thmaoqiu.cn/carousel/add
 
 数据传输方式：POST
 
@@ -645,7 +645,7 @@ order(string) | 传入轮播图序号  | 1
  #### 删除比赛轮播图
  
  
-> http://www.thmaoqiu.cn/carousel/del
+> http://neuqercc.thmaoqiu.cn/carousel/del
 
 数据传输方式：DELETE
 
@@ -699,7 +699,7 @@ order(string) | 传入图片序号  | 1
  #### 查询比赛轮播图
   
   
- > http://www.thmaoqiu.cn/carousel/show
+ > http://neuqercc.thmaoqiu.cn/carousel/show
  
  数据传输方式：GET
  
@@ -719,11 +719,11 @@ order(string) | 传入图片序号  | 1
     "data": [
         {
             "order": 1,
-            "url": "http://www.thmaoqiu.cn/poetry/storage/app/carousels/59f2fb29f3b6d.jpg"
+            "url": "http://neuqercc.thmaoqiu.cn/poetry/storage/app/carousels/59f2fb29f3b6d.jpg"
         },
         {
             "order": 2,
-            "url": "http://www.thmaoqiu.cn/poetry/storage/app/carousels/59f2ff70e9f2b.jpg"
+            "url": "http://neuqercc.thmaoqiu.cn/poetry/storage/app/carousels/59f2ff70e9f2b.jpg"
         }
     ]
 }
@@ -736,15 +736,15 @@ order(string) | 传入图片序号  | 1
     "data": [
         {
             "order": 1,
-            "url": "http://www.thmaoqiu.cn/poetry/storage/app/carousels/59f2fb29f3b6d.jpg"
+            "url": "http://neuqercc.thmaoqiu.cn/poetry/storage/app/carousels/59f2fb29f3b6d.jpg"
         },
         {
             "order": 2,
-            "url": "http://www.thmaoqiu.cn/poetry/storage/app/carousels/59f2ff70e9f2b.jpg"
+            "url": "http://neuqercc.thmaoqiu.cn/poetry/storage/app/carousels/59f2ff70e9f2b.jpg"
         },
         {
             "order": 6,
-            "url": "http://www.thmaoqiu.cn/poetry/storage/app/carousels/59f32dfc0240c.jpg"
+            "url": "http://neuqercc.thmaoqiu.cn/poetry/storage/app/carousels/59f32dfc0240c.jpg"
         }
     ]
 }
@@ -762,7 +762,7 @@ order(string) | 传入图片序号  | 1
  
  #### 添加比赛类别
  
-> http://www.thmaoqiu.cn/type/add
+> http://neuqercc.thmaoqiu.cn/type/add
 
 数据传输方式：POST
 
@@ -810,7 +810,7 @@ order(string) | 传入比赛序号  | 1
  
   #### 删除比赛类别
   
- > http://www.thmaoqiu.cn/type/del
+ > http://neuqercc.thmaoqiu.cn/type/del
  
  数据传输方式：DELETE
  
@@ -852,7 +852,7 @@ order(string) | 传入比赛序号  | 1
   
    #### 查询比赛类别
    
-  > http://www.thmaoqiu.cn/type/show
+  > http://neuqercc.thmaoqiu.cn/type/show
   
   数据传输方式：GET
   
@@ -904,7 +904,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加比赛
 
- > http://www.thmaoqiu.cn/desc/add
+ > http://neuqercc.thmaoqiu.cn/desc/add
  
  数据传输方式：POST
  
@@ -948,7 +948,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 修改比赛
 
- > http://www.thmaoqiu.cn/desc/edit
+ > http://neuqercc.thmaoqiu.cn/desc/edit
  
  数据传输方式：POST
  
@@ -998,7 +998,7 @@ order(string) | 传入比赛序号  | 1
   
 #### 删除比赛
 
- > http://www.thmaoqiu.cn/desc/del
+ > http://neuqercc.thmaoqiu.cn/desc/del
  
  数据传输方式：DELETE
  
@@ -1046,7 +1046,7 @@ order(string) | 传入比赛序号  | 1
   
 #### 查询单个比赛
 
- > http://www.thmaoqiu.cn/desc/show
+ > http://neuqercc.thmaoqiu.cn/desc/show
  
  数据传输方式：GET
  
@@ -1069,7 +1069,7 @@ order(string) | 传入比赛序号  | 1
         "short_desc": "",
         "registration_time": "2017-10-01",
         "competition_time": "2017-10-30",
-        "pic": "http://www.thmaoqiu.cn/saiyou/storage/app/competitions/59f43cdac4066.jpg"
+        "pic": "http://neuqercc.thmaoqiu.cn/saiyou/storage/app/competitions/59f43cdac4066.jpg"
     }
 }
   ```
@@ -1090,7 +1090,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询多个比赛
 
- > http://www.thmaoqiu.cn/descs/show
+ > http://neuqercc.thmaoqiu.cn/descs/show
  
  数据传输方式：GET
  
@@ -1133,7 +1133,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 搜索比赛
 
- > http://www.thmaoqiu.cn/desc/search
+ > http://neuqercc.thmaoqiu.cn/desc/search
  
  数据传输方式：POST
  
@@ -1188,7 +1188,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加大神攻略
 
-> http://www.thmaoqiu.cn/raider/add
+> http://neuqercc.thmaoqiu.cn/raider/add
  
  数据传输方式：POST
  
@@ -1239,7 +1239,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 修改大神攻略
 
-> http://www.thmaoqiu.cn/raider/edit
+> http://neuqercc.thmaoqiu.cn/raider/edit
  
  数据传输方式：POST
  
@@ -1290,7 +1290,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 删除大神攻略
 
-> http://www.thmaoqiu.cn/raider/del
+> http://neuqercc.thmaoqiu.cn/raider/del
  
  数据传输方式：DELETE
  
@@ -1332,7 +1332,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询大神攻略
    
-> http://www.thmaoqiu.cn/raider/show
+> http://neuqercc.thmaoqiu.cn/raider/show
     
  数据传输格式为：JSON
  
@@ -1350,11 +1350,11 @@ order(string) | 传入比赛序号  | 1
            "id": 1,
            "name": "bilibili",
            "desc": "bbbbbbbbbbbbbb",
-           "pic": "http://www.thmaoqiu.cn/saiyou/storage/app/competitions/59f4804f62901.jpg", 
+           "pic": "http://neuqercc.thmaoqiu.cn/saiyou/storage/app/competitions/59f4804f62901.jpg", 
            "type": "bilibili类",
            "god_name": "sadasda",
            "god_desc": "asdad",
-           "god_pic": "http://www.thmaoqiu.cn/saiyou/storage/app/raiders/5a1e78d76e2c1.jpg"
+           "god_pic": "http://neuqercc.thmaoqiu.cn/saiyou/storage/app/raiders/5a1e78d76e2c1.jpg"
        }
    }
 ```
@@ -1371,7 +1371,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加队伍
 
- > http://www.thmaoqiu.cn/team/add
+ > http://neuqercc.thmaoqiu.cn/team/add
  
  数据传输方式：POST
  
@@ -1411,7 +1411,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加队伍成员
 
- > http://www.thmaoqiu.cn/team/member_add
+ > http://neuqercc.thmaoqiu.cn/team/member_add
  
  数据传输方式：POST
  
@@ -1461,7 +1461,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 删除队伍成员
 
- > http://www.thmaoqiu.cn/team/member_del
+ > http://neuqercc.thmaoqiu.cn/team/member_del
  
  数据传输方式：DELETE
  
@@ -1510,7 +1510,7 @@ order(string) | 传入比赛序号  | 1
   
 #### 查询队伍成员
 
- > http://www.thmaoqiu.cn/team/member_show
+ > http://neuqercc.thmaoqiu.cn/team/member_show
  
  数据传输方式：GET
  
@@ -1561,7 +1561,7 @@ order(string) | 传入比赛序号  | 1
   
 #### 修改队伍
 
- > http://www.thmaoqiu.cn/team/edit
+ > http://neuqercc.thmaoqiu.cn/team/edit
  
  数据传输方式：POST
  
@@ -1607,7 +1607,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 删除队伍
 
- > http://www.thmaoqiu.cn/team/del
+ > http://neuqercc.thmaoqiu.cn/team/del
  
  数据传输方式：DELETE
  
@@ -1649,7 +1649,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询单支队伍
 
- > http://www.thmaoqiu.cn/team/show
+ > http://neuqercc.thmaoqiu.cn/team/show
  
  数据传输方式：GET
  
@@ -1706,7 +1706,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询多支队伍
 
- > http://www.thmaoqiu.cn/teams/show
+ > http://neuqercc.thmaoqiu.cn/teams/show
  
  数据传输方式：GET
  
@@ -1750,7 +1750,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 推荐队伍
 
- > http://www.thmaoqiu.cn/team/recommend
+ > http://neuqercc.thmaoqiu.cn/team/recommend
  
  数据传输方式：GET
  
@@ -1796,7 +1796,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 搜索队伍
 
- > http://www.thmaoqiu.cn/team/search
+ > http://neuqercc.thmaoqiu.cn/team/search
  
  数据传输方式：POST
  
@@ -1849,7 +1849,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加意见反馈
 
- > http://www.thmaoqiu.cn/feedback
+ > http://neuqercc.thmaoqiu.cn/feedback
  
  数据传输方式：POST
  
@@ -1882,7 +1882,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加年份
 
- > http://www.thmaoqiu.cn/other/year_add
+ > http://neuqercc.thmaoqiu.cn/other/year_add
  
  数据传输方式：POST
  
@@ -1913,7 +1913,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 删除年份
 
- > http://www.thmaoqiu.cn/other/year_del
+ > http://neuqercc.thmaoqiu.cn/other/year_del
  
  数据传输方式：DELETE
  
@@ -1950,7 +1950,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询年份
 
- > http://www.thmaoqiu.cn/other/year_show
+ > http://neuqercc.thmaoqiu.cn/other/year_show
  
  数据传输方式：GET
  
@@ -1990,7 +1990,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加擅长领域（资料编辑）
 
- > http://www.thmaoqiu.cn/other/field_add
+ > http://neuqercc.thmaoqiu.cn/other/field_add
  
  数据传输方式：POST
  
@@ -2021,7 +2021,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 删除领域
 
- > http://www.thmaoqiu.cn/other/field_del
+ > http://neuqercc.thmaoqiu.cn/other/field_del
  
  数据传输方式：DELETE
  
@@ -2058,7 +2058,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询领域份
 
- > http://www.thmaoqiu.cn/other/field_show
+ > http://neuqercc.thmaoqiu.cn/other/field_show
  
  数据传输方式：GET
  
@@ -2101,7 +2101,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加好友
 
- > http://www.thmaoqiu.cn/friend/add
+ > http://neuqercc.thmaoqiu.cn/friend/add
  
  数据传输方式：POST
  
@@ -2162,7 +2162,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 删除好友
 
- > http://www.thmaoqiu.cn/friend/del
+ > http://neuqercc.thmaoqiu.cn/friend/del
  
  数据传输方式：DELETE
  
@@ -2211,7 +2211,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 查询好友
 
- > http://www.thmaoqiu.cn/friend/show
+ > http://neuqercc.thmaoqiu.cn/friend/show
  
  数据传输方式：GET
  
@@ -2256,7 +2256,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 搜索用户
 
- > http://www.thmaoqiu.cn/chat/search
+ > http://neuqercc.thmaoqiu.cn/chat/search
  
  数据传输方式：GET
  
@@ -2295,7 +2295,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 添加系统消息
 
- > http://www.thmaoqiu.cn/notice/add
+ > http://neuqercc.thmaoqiu.cn/notice/add
  
  数据传输方式：POST
  
@@ -2335,7 +2335,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 拉取系统消息
 
- > http://www.thmaoqiu.cn/notice/get
+ > http://neuqercc.thmaoqiu.cn/notice/get
  
  数据传输方式：GET
  
@@ -2383,7 +2383,7 @@ order(string) | 传入比赛序号  | 1
 
 #### 删除系统消息
 
- > http://www.thmaoqiu.cn/notice/del
+ > http://neuqercc.thmaoqiu.cn/notice/del
  
  数据传输方式：DELETE
  
